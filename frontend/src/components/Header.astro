@@ -1,0 +1,62 @@
+---
+import LinkButton from '../components/LinkButton.astro';
+import Logo from '../../public/DesktopLogoS1.png';
+import '../components/LinkButton.astro';
+import '../CSS/Background.css';
+import '../CSS/Section.css';
+import '../CSS/Utility.css';
+---
+
+<div class="header-border background-secondary">
+    <div class="container center">
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li id="Logo"><img class="logo-image" src="../../public/DesktopLogoS1.png" alt="Business logo and home button" width="250" height="100"></li>
+                <li><a href="/About">About</a></li>
+                <li><a href="/Services">Services</a></li>
+                <li><LinkButton variant="secondary" href="/Contact" text="Contact Me!"></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<style>
+    .header-border{
+        height: 5.3rem;
+    }
+
+    ul{
+        display: flex;
+        align-items: flex-end;
+        gap: 2.5rem;
+        font-family: var(--font-secondary);
+        font-weight: bold;
+        font-size: var(--fnt-sz-32);
+        letter-spacing: -0.01em;
+        color: var(--dark-accent);
+    }
+
+    #Logo{
+        margin-right: auto;
+    }
+
+    a{
+        color: var(--dark-accent);
+    }
+
+    a:hover{
+        text-decoration: underline;
+        transition: text-decoration 3s ease;
+    }
+
+    .center{
+        align-content: center;
+    }
+
+    .logo-image{
+        position: absolute;
+        top: 0;
+        left: 3rem;
+    }
+
+</style>

@@ -1,0 +1,40 @@
+:root{
+    --color-primary: #D64545;
+    --color-secondary: #E9DCA7;
+    --highlight-primary: #98C0EA;
+    --highlight-secondary:  #FFFFFF;
+    --accent-primary: #3C4161;
+    --accent-secondary: #1b1f3b;
+    --dark-accent: #000000;
+
+    --font-primary: 'Raleway', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-secondary: 'Lora', 'Georgia', 'Times New Roman', Times, serif;
+
+    --fnt-sz-200: 12.5rem;
+    --fnt-sz-100: 6.25rem;
+    --fnt-sz-76: 4.75rem;
+    --fnt-sz-64: 64rem;
+    --fnt-sz-48: 3rem;
+    --fnt-sz-32: 2rem;
+    --fnt-sz-28: 1.75rem; /*used for mobile*/
+    --fnt-sz-24: 1.5rem; /*used for mobile*/
+    --fnt-sz-16: 1rem;
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ol,
+ul{
+    list-style: none;
+    user-select: none;
+}
+
+a{
+    text-decoration: none;
+}

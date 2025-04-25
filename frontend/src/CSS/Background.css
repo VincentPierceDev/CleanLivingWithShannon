@@ -1,0 +1,11 @@
+@import url('./Global.css');
+
+.background-primary{
+    max-width: 100%;
+    background-color: var(--color-primary);
+}
+
+.background-secondary{
+    max-width: 100%;
+    background-color: var(--color-secondary);
+}

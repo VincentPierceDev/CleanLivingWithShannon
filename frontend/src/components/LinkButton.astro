@@ -1,0 +1,56 @@
+---
+import "../CSS/global.css";
+
+const {
+	variant = "primary",
+	text,
+	href,
+} = Astro.props as {
+	variant?: "primary" | "secondary";
+	text: string;
+	href: string;
+};
+
+const buttonTypes = {
+	primary: "primary-button",
+	secondary: "secondary-button",
+};
+---
+
+<a href={href} class={`link-btn ${buttonTypes[variant]}`}>
+	{text}
+</a>
+
+<style>
+	.link-btn {
+		height: 3rem;
+		width: 3rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		padding-top: 0.25rem;
+		padding-bottom: 0.25rem;
+		color: var(--dark-accent);
+	}
+
+	.secondary-button {
+		border: 0.25rem solid var(--color-primary);
+		background: var(--color-secondary);
+		text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+		transition:
+			color 0.2s ease-in-out,
+			border 0.2s ease-in-out,
+			background 0.2s ease-in-out;
+	}
+
+	.secondary-button:hover {
+		border: 0.25rem solid var(--accent-primary);
+		box-shadow: inset 0px 0px 3px 1px white;
+		background: var(--color-primary);
+		color: var(--color-secondary);
+		text-shadow: none;
+		transition:
+			color 0.2s ease-in-out,
+			border 0.2s ease-in-out,
+			background 0.2s ease-in-out;
+	}
+</style>
