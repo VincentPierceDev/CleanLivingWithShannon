@@ -5,10 +5,22 @@ const {
 	variant = "primary",
 	text,
 	href,
+	textSize,
+	paddingL = ".5rem",
+	paddingR = ".5rem",
+	paddingT = ".25rem",
+	paddingB = ".25rem",
+	br = "0rem"
 } = Astro.props as {
 	variant?: "primary" | "secondary";
 	text: string;
 	href: string;
+	textSize: string;
+	paddingL: string;
+	paddingR: string;
+	paddingT: string;
+	paddingB: string;
+	br: string;
 };
 
 const buttonTypes = {
@@ -18,39 +30,60 @@ const buttonTypes = {
 ---
 
 <a href={href} class={`link-btn ${buttonTypes[variant]}`}>
-	{text}
+	<span class={`s-${buttonTypes[variant]}`}>{text}</span>
 </a>
 
-<style>
-	.link-btn {
-		height: 3rem;
-		width: 3rem;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		padding-top: 0.25rem;
-		padding-bottom: 0.25rem;
+
+<style define:vars={{textSize, paddingL, paddingR, paddingT, paddingB, br}}>
+	span{
+		font-size: var(--textSize);
+		user-select: none;
+	}
+
+	.s-secondary-button{
 		color: var(--dark-accent);
+	}
+
+	.s-primary-button{
+		color: var(--highlight-secondary);
+	}
+
+	.link-btn {
+		padding-left: var(--paddingL);
+		padding-right: var(--paddingR);
+		padding-top: var(--paddingT);
+		padding-bottom: var(--paddingB);
+		border: 50px solid blue;
+		border-radius: var(--br);
+	}
+
+	.primary-button{
+		border: none;
+		background: var(--accent-primary);
+		box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
+		transition: all 0.2s ease-in-out;
+	}
+
+	.primary-button:hover{
+		background: var(--accent-secondary);
+		box-shadow: -3px 3px 4px rgba(0, 0, 0, 0.25);
+		transition: all 0.2s ease-in-out;
 	}
 
 	.secondary-button {
 		border: 0.25rem solid var(--color-primary);
-		background: var(--color-secondary);
+		background-color: var(--color-secondary);
 		text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
-		transition:
-			color 0.2s ease-in-out,
-			border 0.2s ease-in-out,
-			background 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
 	}
 
 	.secondary-button:hover {
 		border: 0.25rem solid var(--accent-primary);
 		box-shadow: inset 0px 0px 3px 1px white;
-		background: var(--color-primary);
+		background-color: var(--color-primary);
 		color: var(--color-secondary);
 		text-shadow: none;
-		transition:
-			color 0.2s ease-in-out,
-			border 0.2s ease-in-out,
-			background 0.2s ease-in-out;
+		transition: all 0.2s ease-in-out;
 	}
-</style>
+</style>	
+

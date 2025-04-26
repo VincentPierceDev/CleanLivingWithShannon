@@ -1,62 +1,240 @@
 ---
-import LinkButton from '../components/LinkButton.astro';
-import Logo from '../../public/DesktopLogoS1.png';
-import '../components/LinkButton.astro';
-import '../CSS/Background.css';
-import '../CSS/Section.css';
-import '../CSS/Utility.css';
+import LinkButton from "../components/LinkButton.astro";
+import "../components/LinkButton.astro";
+import "../CSS/Background.css";
+import "../CSS/Section.css";
+import "../CSS/Utility.css";
 ---
 
 <div class="header-border background-secondary">
-    <div class="container center">
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li id="Logo"><img class="logo-image" src="../../public/DesktopLogoS1.png" alt="Business logo and home button" width="250" height="100"></li>
-                <li><a href="/About">About</a></li>
-                <li><a href="/Services">Services</a></li>
-                <li><LinkButton variant="secondary" href="/Contact" text="Contact Me!"></li>
-            </ul>
-        </nav>
-    </div>
+	<div class="container center">
+		<nav id="navbar">
+			<div class="nav-content">
+				<input type="checkbox" id="nav-menu-active" />
+				<a href="/" class="desktop-logo"
+					><img
+						class="logo-image"
+						src="/DesktopLogoS1.png"
+						alt="Home logo"
+						width="250"
+						height="100"
+					/></a
+				>
+				<a href="/" class="mobile-logo"
+					><img
+						class="logo-image"
+						src="/MobileLogoS1.png"
+						alt="Home logo"
+						width="100"
+						height="100"
+					/></a
+				>
+				<label for="nav-menu-active" class="open-nav-menu-btn">
+					<img
+						class="hamburger-menu"
+						src="/HamburgerIcon.png"
+						alt="Nav Menu"
+						width="75"
+						height="75"
+					/>
+				</label>
+				<ul class="links-container">
+					<label for="nav-menu-active" class="close-nav-menu-btn">
+						<img
+							src="/CloseIcon.png"
+							alt="Exit Button"
+							width="50"
+							height="50"
+						/>
+					</label>
+					<li class="link"><a href="/">Home</a></li>
+					<li class="link"><a href="/About">About</a></li>
+					<li class="link"><a href="/Services">Services</a></li>
+					<li class="link show-desktop">
+						<LinkButton
+							variant="secondary"
+							href="/Contact"
+							text="Contact Me!"
+						/>
+						<li class="link show-mobile contact-link">
+							<a href="/Contact">Contact Me!</a>
+						</li>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<style>
+		.header-border {
+			height: 6.75rem;
+			position: relative;
+			min-width: 100%;
+		}
+
+		.center {
+			align-content: center;
+		}
+
+		.nav-content {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.logo-image {
+			transition: background-color 0.2s ease-in-out;
+			margin-right: auto;
+		}
+
+		.logo-image:hover {
+			background-color: var(--color-primary);
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+
+		.mobile-logo {
+			display: none;
+		}
+
+		.desktop-logo {
+			display: block;
+		}
+
+		.mobile-navbar {
+			display: none;
+		}
+
+		.open-nav-menu-btn,
+		.close-nav-menu-btn {
+			display: none;
+		}
+
+		.hamburger-menu {
+			border: 3px solid var(--color-primary);
+			padding: 0.5rem;
+			margin-right: 1rem;
+		}
+
+		.nav-slider {
+			position: absolute;
+			display: flex;
+			left: 77.1%;
+			top: 0%;
+			height: 60vh;
+			width: 10rem;
+			background: black;
+			z-index: 2;
+		}
+
+		.show-mobile {
+			display: none;
+		}
+
+		.show-desktop {
+			display: block;
+		}
+
+		ul {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 2.5rem;
+			font-family: var(--font-secondary);
+			font-weight: bold;
+			font-size: var(--fnt-sz-32);
+			letter-spacing: -0.01em;
+			color: var(--dark-accent);
+		}
+
+		a {
+			color: var(--dark-accent);
+			text-decoration: underline;
+			text-decoration-color: var(--color-secondary);
+			transition: text-decoration-color 0.2s ease-in-out;
+		}
+
+		a:hover {
+			text-decoration-color: var(--dark-accent);
+			transition: text-decoration-color 0.5s ease-in-out;
+		}
+
+		#nav-menu-active {
+			display: none;
+		}
+
+		@media (max-width: 1100px) {
+			.link {
+				scale: 80%;
+			}
+			ul {
+				gap: 1rem;
+			}
+		}
+
+		@media (max-width: 1024px) {
+			.logo-image {
+				top: -0.5rem;
+				left: 3rem;
+			}
+		}
+
+		@media (max-width: 850px) {
+			.links-container {
+				flex-direction: column;
+				position: fixed;
+				background: var(--accent-secondary);
+				z-index: 2;
+				width: 60%;
+				padding: 1rem;
+				right: -75%;
+				top: 0%;
+				height: 100vh;
+				gap: 1rem;
+				align-items: flex-start;
+				transition: 0.4s ease-out;
+			}
+
+			.contact-link {
+				border: 2px solid white;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				padding-inline: 0.2rem;
+				text-align: center;
+				width: 100%;
+				margin-top: 1rem;
+			}
+
+			.open-nav-menu-btn,
+			.close-nav-menu-btn {
+				display: block;
+			}
+
+			.show-mobile {
+				display: block;
+			}
+
+			.show-desktop {
+				display: none;
+			}
+
+			.mobile-logo {
+				display: block;
+			}
+
+			.desktop-logo {
+				display: none;
+			}
+
+			a {
+				text-decoration: none;
+				color: var(--highlight-secondary);
+			}
+
+			#nav-menu-active:checked ~ .links-container {
+				right: 0;
+			}
+		}
+	</style>
 </div>
-
-<style>
-    .header-border{
-        height: 5.3rem;
-    }
-
-    ul{
-        display: flex;
-        align-items: flex-end;
-        gap: 2.5rem;
-        font-family: var(--font-secondary);
-        font-weight: bold;
-        font-size: var(--fnt-sz-32);
-        letter-spacing: -0.01em;
-        color: var(--dark-accent);
-    }
-
-    #Logo{
-        margin-right: auto;
-    }
-
-    a{
-        color: var(--dark-accent);
-    }
-
-    a:hover{
-        text-decoration: underline;
-        transition: text-decoration 3s ease;
-    }
-
-    .center{
-        align-content: center;
-    }
-
-    .logo-image{
-        position: absolute;
-        top: 0;
-        left: 3rem;
-    }
-
-</style>
