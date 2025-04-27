@@ -6,6 +6,7 @@
     --accent-primary: #3C4161;
     --accent-secondary: #1b1f3b;
     --dark-accent: #000000;
+    --light-accent: #6b5d8f;
 
     --font-primary: 'Raleway', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-secondary: 'Lora', 'Georgia', 'Times New Roman', Times, serif;
@@ -29,6 +30,13 @@
     box-sizing: border-box;
 }
 
+html, body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--accent-primary);
+}
+
 ol,
 ul{
     list-style: none;
@@ -41,4 +49,15 @@ a{
 
 strong{
     font-weight: normal;
+}
+
+.border{
+    min-width: 100vw;
+    width: 100vw;
+}
+
+@media(max-width: 850px){
+    html, body{
+        overflow-x: hidden;
+    }
 }

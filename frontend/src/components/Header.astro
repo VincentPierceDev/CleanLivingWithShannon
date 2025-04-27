@@ -4,237 +4,244 @@ import "../components/LinkButton.astro";
 import "../CSS/Background.css";
 import "../CSS/Section.css";
 import "../CSS/Utility.css";
+
+const{linkMask = []} = Astro.props;
 ---
 
-<div class="header-border background-secondary">
+<div class="border header-border background-secondary">
 	<div class="container center">
 		<nav id="navbar">
 			<div class="nav-content">
 				<input type="checkbox" id="nav-menu-active" />
-				<a href="/" class="desktop-logo"
-					><img
-						class="logo-image"
-						src="/DesktopLogoS1.png"
-						alt="Home logo"
-						width="250"
-						height="100"
-					/></a
-				>
-				<a href="/" class="mobile-logo"
-					><img
-						class="logo-image"
-						src="/MobileLogoS1.png"
-						alt="Home logo"
-						width="100"
-						height="100"
-					/></a
-				>
+				<a href="/" class="desktop-logo"><img class="logo-image" src="/DesktopLogoS1.png" alt="Home logo" width="250" height="100"/></a>
+				<a href="/" class="mobile-logo"><img class="logo-image" src="/MobileLogoS1.png" alt="Home logo" width="100" height="100"/></a>
 				<label for="nav-menu-active" class="open-nav-menu-btn">
-					<img
-						class="hamburger-menu"
-						src="/HamburgerIcon.png"
-						alt="Nav Menu"
-						width="75"
-						height="75"
-					/>
+					<img class="hamburger-menu" src="/HamburgerIcon.png" alt="Nav Menu" width="75" height="75"/>
 				</label>
 				<ul class="links-container">
 					<label for="nav-menu-active" class="close-nav-menu-btn">
-						<img
-							src="/CloseIcon.png"
-							alt="Exit Button"
-							width="50"
-							height="50"
-						/>
+						<img src="/CloseIcon.png" alt="Exit Button" width="50" height="50"/>
 					</label>
-					<li class="link"><a href="/">Home</a></li>
-					<li class="link"><a href="/About">About</a></li>
-					<li class="link"><a href="/Services">Services</a></li>
+					<li class="link"><a id="home" href="/">Home</a></li>
+					<li class="link"><a id="about" href="/About">About</a></li>
+					<li class="link"><a id="service" href="/Services">Services</a></li>
 					<li class="link show-desktop">
-						<LinkButton
-							variant="secondary"
-							href="/Contact"
-							text="Contact Me!"
-						/>
+						<LinkButton variant="secondary" href="/Contact" text="Contact Me!" color="var(--contact-color)"/>
 						<li class="link show-mobile contact-link">
-							<a href="/Contact">Contact Me!</a>
+							<a id="contact" href="/Contact">Contact Me!</a>
 						</li>
 					</li>
 				</ul>
 			</div>
 		</nav>
 	</div>
+</div>
 
-	<style>
-		.header-border {
-			height: 6.75rem;
-			position: relative;
-			min-width: 100%;
+<style>
+	.header-border {
+		height: 6.75rem;
+		position: relative;
+	}
+
+	.center {
+		align-content: center;
+	}
+
+	.nav-content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.logo-image {
+		transition: background-color 0.2s ease-in-out;
+		margin-right: auto;
+	}
+
+	.logo-image:hover {
+		background-color: var(--color-primary);
+		cursor: pointer;
+		transition: background-color 0.2s ease-in-out;
+	}
+
+	.mobile-logo {
+		display: none;
+	}
+
+	.desktop-logo {
+		display: block;
+	}
+
+	.mobile-navbar {
+		display: none;
+	}
+
+	.open-nav-menu-btn,
+	.close-nav-menu-btn {
+		display: none;
+	}
+
+	.hamburger-menu {
+		border: 3px solid var(--color-primary);
+		padding: 0.5rem;
+		margin-right: 1rem;
+		user-select: none;
+	}
+
+	.nav-slider {
+		position: absolute;
+		display: flex;
+		left: 77.1%;
+		top: 0%;
+		height: 60vh;
+		width: 10rem;
+		background: black;
+		z-index: 2;
+	}
+
+	.show-mobile {
+		display: none;
+	}
+
+	.show-desktop {
+		display: block;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		gap: 2.5rem;
+		font-family: var(--font-secondary);
+		font-weight: bold;
+		font-size: var(--fnt-sz-32);
+		letter-spacing: -0.01em;
+	}
+
+	a {
+		
+		text-decoration: underline;
+		text-decoration-color: var(--color-secondary);
+		transition: text-decoration-color 0.2s ease-in-out;
+		user-select: none;
+	}
+
+	a:focus {
+		background: var(--color-primary);
+	}
+
+	a:hover {
+		text-decoration-color: var(--dark-accent);
+		transition: text-decoration-color 0.5s ease-in-out;
+	}
+
+	#nav-menu-active {
+		display: none;
+	}
+
+	#home{
+		color: var(--home-color); 
+	}
+
+	#about{
+		color: var(--about-color);
+	}
+
+	#service{
+		color: var(--service-color);
+	}
+
+	#contact{
+		color: var(--contact-color);
+	}
+
+	@media (max-width: 1100px) {
+		.link {
+			scale: 80%;
 		}
-
-		.center {
-			align-content: center;
+		ul {
+			gap: 1rem;
 		}
+	}
 
-		.nav-content {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-		}
-
+	@media (max-width: 1024px) {
 		.logo-image {
-			transition: background-color 0.2s ease-in-out;
-			margin-right: auto;
+			top: -0.5rem;
+			left: 3rem;
+		}
+	}
+
+	@media (max-width: 850px) {
+		.links-container {
+			flex-direction: column;
+			position: fixed;
+			background: var(--accent-secondary);
+			z-index: 2;
+			width: 60%;
+			padding: 1rem;
+			right: -75%;
+			top: 0%;
+			height: 100vh;
+			gap: 1rem;
+			align-items: flex-start;
+			transition: 0.4s ease-out;
 		}
 
-		.logo-image:hover {
-			background-color: var(--color-primary);
-			cursor: pointer;
-			transition: background-color 0.2s ease-in-out;
-		}
-
-		.mobile-logo {
-			display: none;
-		}
-
-		.desktop-logo {
-			display: block;
-		}
-
-		.mobile-navbar {
-			display: none;
+		.contact-link {
+			border: 2px solid var(--highlight-secondary);
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+			padding-inline: 0.2rem;
+			text-align: center;
+			width: 100%;
+			margin-top: 1rem;
+			user-select: none;
 		}
 
 		.open-nav-menu-btn,
 		.close-nav-menu-btn {
-			display: none;
-		}
-
-		.hamburger-menu {
-			border: 3px solid var(--color-primary);
-			padding: 0.5rem;
-			margin-right: 1rem;
-		}
-
-		.nav-slider {
-			position: absolute;
-			display: flex;
-			left: 77.1%;
-			top: 0%;
-			height: 60vh;
-			width: 10rem;
-			background: black;
-			z-index: 2;
-		}
-
-		.show-mobile {
-			display: none;
-		}
-
-		.show-desktop {
 			display: block;
 		}
 
-		ul {
-			display: flex;
-			flex-direction: row;
-			align-items: flex-end;
-			gap: 2.5rem;
-			font-family: var(--font-secondary);
-			font-weight: bold;
-			font-size: var(--fnt-sz-32);
-			letter-spacing: -0.01em;
-			color: var(--dark-accent);
+		.show-mobile {
+			display: block;
 		}
 
-		a {
-			color: var(--dark-accent);
-			text-decoration: underline;
-			text-decoration-color: var(--color-secondary);
-			transition: text-decoration-color 0.2s ease-in-out;
-		}
-
-		a:hover {
-			text-decoration-color: var(--dark-accent);
-			transition: text-decoration-color 0.5s ease-in-out;
-		}
-
-		#nav-menu-active {
+		.show-desktop {
 			display: none;
 		}
 
-		@media (max-width: 1100px) {
-			.link {
-				scale: 80%;
-			}
-			ul {
-				gap: 1rem;
-			}
+		.mobile-logo {
+			display: block;
 		}
 
-		@media (max-width: 1024px) {
-			.logo-image {
-				top: -0.5rem;
-				left: 3rem;
-			}
+		.desktop-logo {
+			display: none;
 		}
 
-		@media (max-width: 850px) {
-			.links-container {
-				flex-direction: column;
-				position: fixed;
-				background: var(--accent-secondary);
-				z-index: 2;
-				width: 60%;
-				padding: 1rem;
-				right: -75%;
-				top: 0%;
-				height: 100vh;
-				gap: 1rem;
-				align-items: flex-start;
-				transition: 0.4s ease-out;
-			}
-
-			.contact-link {
-				border: 2px solid white;
-				padding-top: 0.5rem;
-				padding-bottom: 0.5rem;
-				padding-inline: 0.2rem;
-				text-align: center;
-				width: 100%;
-				margin-top: 1rem;
-			}
-
-			.open-nav-menu-btn,
-			.close-nav-menu-btn {
-				display: block;
-			}
-
-			.show-mobile {
-				display: block;
-			}
-
-			.show-desktop {
-				display: none;
-			}
-
-			.mobile-logo {
-				display: block;
-			}
-
-			.desktop-logo {
-				display: none;
-			}
-
-			a {
-				text-decoration: none;
-				color: var(--highlight-secondary);
-			}
-
-			#nav-menu-active:checked ~ .links-container {
-				right: 0;
-			}
+		a {
+			text-decoration: none;
+			color: calc()var(--highlight-secondary);
 		}
-	</style>
-</div>
+
+		
+
+		#nav-menu-active:checked ~ .links-container {
+			right: 0;
+		}
+	}
+</style>
+
+
+<script define:vars={{first : linkMask[0], second : linkMask[1], third : linkMask[2], fourth : linkMask[3]}}>
+
+	const mobile = window.matchMedia("(max-width: 850px)");
+	const buttonColor = !mobile.matches ? `var(--dark--accent)` : `var(--highlight-secondary)`;
+	const buttonAccent = `var(--light-accent)`;
+	document.documentElement.style.setProperty('--home-color', first ? buttonAccent : buttonColor);
+	document.documentElement.style.setProperty('--about-color', second ? buttonAccent : buttonColor);
+	document.documentElement.style.setProperty('--service-color', third ? buttonAccent : buttonColor);
+	document.documentElement.style.setProperty('--contact-color', fourth ? buttonAccent : buttonColor);
+
+</script>
