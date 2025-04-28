@@ -1,1 +1,9 @@
+@import url('./Global.css');
 
+.image-container {
+    height: fit-content;
+    width: fit-content;
+    border: .313rem solid var(--highlight-primary);
+    border-radius: .313rem;
+    background: red;
+}

@@ -1,5 +1,5 @@
 ---
-import "../CSS/global.css";
+import '../CSS/global.css';
 
 const {
 	variant = "primary",
@@ -85,12 +85,24 @@ const buttonTypes = {
 		transition: all 0.2s ease-in-out;
 	}
 
-	@media (max-width: 1100px){
+	@media (max-width: 1600px){
 		.primary-button{
 			padding-top: calc(var(--paddingT) / 1.5);
-			padding-bottom: calc(var(--paddingB) / 1.5);
-			padding-right: calc(var(--paddingR));
-			padding-left: calc(var(--paddingL) / 1.5);
+			padding-bottom: calc(var(--paddingB) / 1.75);
+			padding-right: calc(var(--paddingR) / 2);
+			padding-left: calc(var(--paddingL) / 2);
+			box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.25);
+		}
+
+		.primary-button:hover{
+			box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.25);
+		}
+	}
+
+	@media (max-width: 1099px) and (min-width: 851px) {
+		.primary-button{
+			padding-right: calc(var(--paddingR) / 3);
+			padding-left: calc(var(--paddingL) / 3);
 		}
 	}
 
@@ -101,6 +113,10 @@ const buttonTypes = {
 			padding-top: 1.1rem;
 			padding-bottom: 1rem;
 			box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.25);
+		}
+
+		.primary-button:hover{
+			box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
 		}
 
 		.s-primary-button{
@@ -119,8 +135,4 @@ const buttonTypes = {
 		}
 	}
 
-</style>	
-
-<script define:vars={{colorValue : color}}>
-	console.log(colorValue);
-</script>
+</style>

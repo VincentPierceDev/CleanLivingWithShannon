@@ -1,9 +1,8 @@
 ---
-import LinkButton from "../components/LinkButton.astro";
-import "../components/LinkButton.astro";
-import "../CSS/Background.css";
-import "../CSS/Section.css";
-import "../CSS/Utility.css";
+import LinkButton from "../LinkButton.astro";
+import '../../CSS/Background.css';
+import '../../CSS/Section.css';
+import '../../CSS/Utility.css';
 
 const{linkMask = []} = Astro.props;
 ---
@@ -40,7 +39,6 @@ const{linkMask = []} = Astro.props;
 <style>
 	.header-border {
 		height: 6.75rem;
-		position: relative;
 	}
 
 	.center {
@@ -57,6 +55,8 @@ const{linkMask = []} = Astro.props;
 	.logo-image {
 		transition: background-color 0.2s ease-in-out;
 		margin-right: auto;
+		max-width: 100%;
+		height: auto;
 	}
 
 	.logo-image:hover {
@@ -236,9 +236,11 @@ const{linkMask = []} = Astro.props;
 
 <script define:vars={{first : linkMask[0], second : linkMask[1], third : linkMask[2], fourth : linkMask[3]}}>
 
+	//grab color depending on if its a mobile nav bar or a desktop nav bar being displayed
 	const mobile = window.matchMedia("(max-width: 850px)");
 	const buttonColor = !mobile.matches ? `var(--dark--accent)` : `var(--highlight-secondary)`;
 	const buttonAccent = `var(--light-accent)`;
+	
 	document.documentElement.style.setProperty('--home-color', first ? buttonAccent : buttonColor);
 	document.documentElement.style.setProperty('--about-color', second ? buttonAccent : buttonColor);
 	document.documentElement.style.setProperty('--service-color', third ? buttonAccent : buttonColor);

@@ -1,5 +1,11 @@
 
 
+.hero{
+  min-height: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
 .container{
   margin-left: 4rem;
   margin-right: 4rem;
@@ -57,4 +63,16 @@
     margin-left: 1rem;
     margin-right: 1rem;
   }
+}
+
+@media (max-width: 850px){
+  .center-text-wrap{
+    text-align: center;
+  }
+
+  .center-text-align{
+    display: inline-block;
+    text-align: left;
+  }
+
 }

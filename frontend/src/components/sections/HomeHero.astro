@@ -1,33 +1,40 @@
 ---
-import Button from '../components/LinkButton.astro';
-import '../CSS/Section.css';
-import '../CSS/Global.css';
+import Button from "../LinkButton.astro";
+import '../../CSS/Section.css';
+import '../../CSS/Global.css';
+import '../../CSS/Background.css';
+import '../../CSS/Utility.css';
 ---
 
-<div id="home-hero" class="home-hero hero-border top-design-border bottom-design-border">
+
+<div id="home-hero" class="hero hero-border top-design-border bottom-design-border">
         <div class="home-layout container">
             <div class="title-section">
                 <h1>Clean living<br>with shannon</h1>
-                <p>Cleaning excellence, delivered with precision! <br class="mob-brk">We offer our Clean Living services for homes,<br class="mob-brk"> Airbnbs, and businesses in the <strong id="location-emphasis">East Texas area.</strong></p>
+                <div class="center-text-wrap">
+                    <div class="center-text-align">
+                        <p>Cleaning excellence, delivered with precision! <br class="mob-brk">We offer our Clean Living services for homes,<br id="lap-brk" class="mob-brk"> Airbnbs, and businesses in the <strong id="location-emphasis">East Texas area.</strong></p>
+                    </div>
+                </div>
             </div>
             <div class="button-container">
                 <Button href="/Contact" text="Get In Touch!" textSize="var(--fnt-sz-48)" paddingT="3rem"  paddingB="2rem" paddingL="13rem" paddingR="13rem" br="1rem"/>
             </div>
             <div class="showcase-section">
-                
+                <span class="type-text">Before:</span>
+                <div class="album-container">
+                    <div class="image-container home-hero-image">
+                        <img src="/Photos/BeforeOven.png" alt="Dirty stove image" width="300" height="400" style="border-radius: 1.8rem">
+                    </div>
+                </div>
             </div>
         </div>
 </div>
 
 
 
-<style>
-    .home-hero{
-        min-height: fit-content;
-        position: relative;
-        overflow: hidden;
-    }
 
+<style>
     .home-layout{
         display: grid;
         height: 100%;
@@ -35,6 +42,7 @@ import '../CSS/Global.css';
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto;
         row-gap: 0rem;
+        column-gap: 5rem;
         box-sizing: border-box;
         overflow: hidden;
     }
@@ -47,11 +55,12 @@ import '../CSS/Global.css';
     }
 
     .showcase-section{
-        width: 100%;
-        height: 100%;
+        width: fit-content;
+        height: fit-content;
         background: purple;
         grid-column: 2;
         grid-row: 1 / span 2;
+        text-align: center;
     }
     
     .button-container{
@@ -61,7 +70,32 @@ import '../CSS/Global.css';
         height: fit-content;
         margin-top: 2rem;
         margin-left: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 7rem;
+    }
+
+    .type-text{
+        color: var(--highlight-secondary);
+        font-size: 3rem;
+        font-family: var(--font-primary);
+        text-decoration: dotted;
+        user-select: none;
+        margin-top: 3rem;
+        display: block;
+    }
+
+    .album-container{
+        height: 60vh;
+        width: 40rem;
+        background: blue;
+        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .home-hero-image{
+        border-radius: 1.8rem;
+        box-shadow: 
     }
 
     h1{
@@ -82,21 +116,38 @@ import '../CSS/Global.css';
         font-weight: 500;
     }
 
+   
+
+
     #location-emphasis{
         font-weight: 500;
     }
 
     /* laptops */
-    @media (max-width: 1100px) and (min-width: 851px) {
+    @media (max-width: 1600px) and (min-width: 851px) {
+
+        .title-section{
+            margin-top: 3rem;
+        }
+
+        .button-container{
+            margin-top: 0rem;
+            margin-bottom: 5rem;
+        }
+
+        .mob-brk{
+            display: none;
+        }
 
         h1{
-            font-size: var(--fnt-sz-76);
+            font-size: var(--fnt-sz-56);
         }
 
         p{
-            font-size: var(--fnt-sz-28);
+            font-size: var(--fnt-sz-20);
+            margin-bottom: none;
+            margin-top: 1rem;
         }
-
     }
 
     /*tablet / large phone*/
@@ -146,10 +197,6 @@ import '../CSS/Global.css';
 
         p{
             font-size: var(--fnt-sz-24);
-        }
-
-        .mob-brk{
-            display: none;
         }
     }
 

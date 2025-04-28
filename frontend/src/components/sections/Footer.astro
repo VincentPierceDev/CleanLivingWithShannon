@@ -1,0 +1,142 @@
+---
+import '../../CSS/Background.css';
+import '../../CSS/Section.css';
+import '../../CSS/Global.css';
+
+const currentYear = new Date().getFullYear();
+---
+
+<div class="border footer-border top-design-border background-primary">
+    <div class="container">
+        <div class="footer-content">
+            <div class="brand-content">
+                <img class="logo-image" src="/DesktopLogoS1.png" alt="Page logo" width="250" height="100">
+                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo" src="/Facebook_Logo_Secondary.png" alt="Facebook logo" width="40" height="40"></a>
+            </div>
+            <div class="footer-info">
+                        <p>&copy; {currentYear} Vincent Pierce. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>
+                <a class="attrib-link" href="/Attrib">Attributions</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="/Services">Services</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .footer-border{
+        height: fit-content;
+        position: relative;
+        overflow: hidden;
+        margin-top: 3rem;
+    }
+
+    .footer-content{
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        gap: 20vw;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    .brand-content{
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        margin-right: auto;
+    }
+
+    .footer-info{
+        display: flex;
+        flex-direction: column;
+        margin-top: .8rem;
+    }
+
+    .attrib-link{
+        margin-top: 2.14rem;
+    }
+
+    ul{
+        display: flex;
+        margin-top: 2.14rem;
+        gap: 2.8rem;
+    }
+
+    a{
+        color: var(--highlight-secondary);
+        font-family: var(--font-secondary);
+    }
+
+    a:hover{
+        text-decoration: underline;
+    }
+
+    p{
+        color: var(--highlight-secondary);
+        font-family: var(--font-secondary);
+        font-size: var(--fnt-sz-16);
+    }
+
+    .facebook-logo{
+        margin-left: 1rem;
+    }
+
+    @media(max-width: 1600px){
+        .lap-br{
+            display: none;
+        }
+    }
+
+    @media(max-width: 850px){
+
+        .brand-content{
+            margin: 0;
+            align-items: center;
+        }
+
+        .footer-content{
+            flex-direction: column;
+            gap: 2vh;
+            align-items: center;
+        }
+
+        .footer-info{
+            translate: none;
+            flex-direction: column-reverse;
+        }
+
+        .attrib-link{
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-self: center;
+        }
+        
+        .facebook-logo{
+            margin-left: 0rem;
+        }
+
+        ul{
+            flex-direction: row;
+            gap: 1.25rem;
+            margin: 0;
+            justify-content: center;
+        }
+
+        p{
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 350px){
+        ul{
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+ 
+</style>

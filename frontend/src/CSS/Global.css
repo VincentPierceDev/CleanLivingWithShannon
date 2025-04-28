@@ -14,11 +14,13 @@
     --fnt-sz-200: 12.5rem;
     --fnt-sz-100: 6.25rem;
     --fnt-sz-76: 4.75rem;
-    --fnt-sz-64: 64rem;
+    --fnt-sz-64: 4rem;
+    --fnt-sz-56: 3.5rem; /*used for laptops */
     --fnt-sz-48: 3rem;
     --fnt-sz-32: 2rem;
-    --fnt-sz-28: 1.75rem; /*used for mobile*/
+    --fnt-sz-28: 1.75rem; /*used for mobile / laptop / tablet*/
     --fnt-sz-24: 1.5rem; /*used for mobile*/
+    --fnt-sz-20: 1.25rem; /*used for laptops*/
     --fnt-sz-16: 1rem;
 }
 
@@ -35,6 +37,7 @@ html, body{
     margin: 0;
     padding: 0;
     background: var(--accent-primary);
+    
 }
 
 ol,
@@ -56,8 +59,4 @@ strong{
     width: 100vw;
 }
 
-@media(max-width: 850px){
-    html, body{
-        overflow-x: hidden;
-    }
-}
+
