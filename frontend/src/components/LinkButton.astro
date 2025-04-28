@@ -29,9 +29,12 @@ const buttonTypes = {
 	primary: "primary-button",
 	secondary: "secondary-button",
 };
+
+/* DEVELOPMENT REMOVE FOR DIST */ 
+const baseRoute = import.meta.env.MODE === 'production' ? '/CleanLivingWithShannon' : '';
 ---
 
-<a href={href} class={`link-btn ${buttonTypes[variant]}`}>
+<a href={`${baseRoute}${href}`} class={`link-btn ${buttonTypes[variant]}`}>
 	<span class={`s-${buttonTypes[variant]}`}>{text}</span>
 </a>
 

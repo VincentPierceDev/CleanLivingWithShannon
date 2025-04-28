@@ -1,27 +1,28 @@
 ---
+import enviroment from '../../data/Enviroment.json';
 import '../../CSS/Background.css';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 
 const currentYear = new Date().getFullYear();
+const rootPath = enviroment.PublicRoot;
 ---
 
 <div class="border footer-border top-design-border background-primary">
     <div class="container">
         <div class="footer-content">
             <div class="brand-content">
-                <img class="logo-image" src="/DesktopLogoS1.png" alt="Page logo" width="250" height="100">
-                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo" src="/Facebook_Logo_Secondary.png" alt="Facebook logo" width="40" height="40"></a>
+                <img class="logo-image" src={`${rootPath}/DesktopLogoS1.png`} alt="Page logo" width="250" height="100">
+                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo" src={`${rootPath}/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"></a>
             </div>
             <div class="footer-info">
                         <p>&copy; {currentYear} Vincent Pierce. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>
-                <a class="attrib-link" href="/Attrib">Attributions</a>
+                <a class="attrib-link" href={`${rootPath}/Attrib`}>Attributions</a>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/About">About</a></li>
-                    <li><a href="/Services">Services</a></li>
-                    <li><a href="/Contact">Contact</a></li>
-                    <pill>Pill</pill>
+                    <li><a href={`${rootPath}/`}>Home</a></li>
+                    <li><a href={`${rootPath}/About`}>About</a></li>
+                    <li><a href={`${rootPath}/Services`}>Services</a></li>
+                    <li><a href={`${rootPath}/Contact`}>Contact</a></li>
                 </ul>
             </div>
         </div>

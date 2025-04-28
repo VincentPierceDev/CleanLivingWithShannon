@@ -4,6 +4,9 @@ import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 import '../../CSS/Background.css';
 import '../../CSS/Utility.css';
+
+import enviroment from '../../data/Enviroment.json';
+const rootPath = enviroment.PublicRoot;
 ---
 
 
@@ -18,13 +21,13 @@ import '../../CSS/Utility.css';
                 </div>
             </div>
             <div class="button-container">
-                <Button href="/Contact" text="Get In Touch!" textSize="var(--fnt-sz-48)" paddingT="3rem"  paddingB="2rem" paddingL="13rem" paddingR="13rem" br="1rem"/>
+                <Button href={`${rootPath}/Contact`} text="Get In Touch!" textSize="var(--fnt-sz-48)" paddingT="3rem"  paddingB="2rem" paddingL="13rem" paddingR="13rem" br="1rem"/>
             </div>
             <div class="showcase-section">
                 <span class="type-text">Before:</span>
                 <div class="album-container">
                     <div class="image-container home-hero-image">
-                        <img src="/Photos/BeforeOven.png" alt="Dirty stove image" width="300" height="400" style="border-radius: 1.8rem">
+                        <img src={`${rootPath}/Photos/BeforeOven.png`} alt="Dirty stove image" width="300" height="400" style="border-radius: 1.8rem">
                     </div>
                 </div>
             </div>
