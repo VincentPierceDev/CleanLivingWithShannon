@@ -1,9 +1,16 @@
 @import url('./Global.css');
 
 .image-container {
-    height: fit-content;
-    width: fit-content;
+    height: 25rem;
+    width: 25rem;
     border: .313rem solid var(--highlight-primary);
+    box-shadow: 0px 0px 0px 10px var(--highlight-primary) inset;
     border-radius: .313rem;
-    background: red;
+}
+
+@media (max-width: 850px){
+    .image-container{
+        height: 15rem;
+        width: 15rem;
+    }
 }
