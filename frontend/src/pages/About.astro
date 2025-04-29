@@ -1,8 +1,11 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/PageHero.astro";
+import BodySection from "../components/CallToAction.astro";
+import * as AboutMeta from '../data/MarkDown/About.md';
 ---
 
-<PageLayout title="About" linkMask={[false, true, false, false]}>
+<PageLayout title={AboutMeta.frontmatter.title} description={AboutMeta.frontmatter.description} linkMask={[false, true, false, false]}>
 	<Hero heading="About Me" description="the clean living with shannon story"/>
+	<BodySection callToAction={true}/>
 </PageLayout>

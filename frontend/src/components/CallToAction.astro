@@ -1,0 +1,57 @@
+---
+import Button from "./LinkButton.astro";
+import Enviroment from "../data/Enviroment.json";
+import "../CSS/Global.css";
+
+const {title = "", buttonType = true, buttonText="Button Text", link="/"} = Astro.props as {
+    title: string;
+    buttonType: boolean;
+    buttonText: string;
+    link: string;
+};
+const rootPath = Enviroment.PublicRoot;
+    
+---
+
+<div class="cta-container">
+    <h3>{title}</h3>
+    {buttonType === true ? <Button href={`${rootPath}${link}`} text={buttonText} textSize="var(--fnt-sz-48)" paddingT="1.75rem" paddingB="1.75rem" paddingL="10rem" paddingR="10rem" br="1rem"/> : <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo" src={`${rootPath}/Facebook_Logo_Primary.png`} alt="Facebook logo" width="150" height="150"/></a>
+    }
+</div>
+
+<style>
+    .cta-container{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        color: var(--dark-accent);
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    h3{
+        font-family: var(--font-primary);
+        text-transform: capitalize;
+        font-size: var(--fnt-sz-76);
+        letter-spacing: var( --lt-spc-3);
+        text-align: center;
+    }
+
+    @media (max-width: 1600px)
+    {
+        h3{
+            font-size: var(--fnt-sz-56);
+        }
+    }
+
+    @media (max-width: 850px)
+    {
+        h3{
+            font-size: var(--fnt-sz-32);
+        }
+    }
+
+</style>

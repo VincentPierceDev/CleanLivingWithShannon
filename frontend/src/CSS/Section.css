@@ -1,9 +1,12 @@
 
 
 .hero{
-  min-height: fit-content;
   position: relative;
-  overflow: hidden;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, .25);
+}
+
+.section{
+  min-height: fit-content;
 }
 
 .container{
@@ -48,8 +51,12 @@
   overflow: hidden;
 }
 
-.hero-border{
+.primary-border{
   background-color: var(--color-primary);
+}
+
+.secondary-border{
+  background-color: var(--color-secondary);
 }
 
 @media (min-width: 2000px){

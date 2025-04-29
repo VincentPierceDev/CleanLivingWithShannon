@@ -1,0 +1,30 @@
+---
+import CTA from "../CallToAction.astro";
+
+import '../../CSS/Global.css';
+import '../../CSS/Section.css';
+import '../../CSS/Background.css';
+
+const {title="title", CallToAction = true, buttonType=true, buttonText="buttonText", link} = Astro.props as {
+    title: string;
+    CallToAction: boolean;
+    buttonType: boolean;
+    buttonText: string;
+    link: string;
+};
+---
+
+<div class="body background-secondary">
+    <slot/>
+    <div class="container">
+        {CallToAction && <CTA title={title} buttonType={buttonType} buttonText={buttonText} link={link}/>}
+    </div>
+</div>
+
+<style>
+    .body{
+        height: fit-content;
+        min-width: 100%;
+        max-width: 100%;
+    }
+</style>

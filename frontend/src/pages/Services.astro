@@ -1,8 +1,9 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/PageHero.astro";
+import * as ServicesMeta from '../data/MarkDown/Services.md';
 ---
 
-<PageLayout title="Services" linkMask={[false, false, true, false]}>
+<PageLayout title={ServicesMeta.frontmatter.title} description={ServicesMeta.frontmatter.description} linkMask={[false, false, true, false]}>
 	<Hero heading="Services" description="what I offer for the community"/>
 </PageLayout>

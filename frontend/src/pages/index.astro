@@ -1,9 +1,17 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/HomeHero.astro";
+import BodySection from "../components/sections/BodySection.astro";
+import Card from "../components/Card.astro";
+import * as HomeMeta from '../data/MarkDown/Home.md';
 ---
 
-<PageLayout title="Home" linkMask={[true, false, false, false]}>
+<PageLayout title={HomeMeta.frontmatter.title} description={HomeMeta.frontmatter.description} linkMask={[true, false, false, false]}>
 	<Hero/>
+	<BodySection>
+		<Card/>
+		<Card/>
+		<Card/>
+	</BodySection>
 </PageLayout>
 

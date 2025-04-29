@@ -6,12 +6,10 @@ import '../../CSS/Section.css';
 import '../../CSS/Utility.css';
 
 const{linkMask = []} = Astro.props;
-
-
 const rootPath = enviroment.PublicRoot;
 ---
 
-<div class="border header-border background-secondary">
+<div class="header-border background-secondary">
 	<div class="container center">
 		<nav id="navbar">
 			<div class="nav-content">
@@ -43,6 +41,8 @@ const rootPath = enviroment.PublicRoot;
 <style>
 	.header-border {
 		height: 6.75rem;
+		max-width: 100%;
+		min-width: 100%;
 	}
 
 	.center {
