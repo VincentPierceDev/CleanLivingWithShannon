@@ -11,7 +11,8 @@ const {
 	paddingT = ".25rem",
 	paddingB = ".25rem",
 	br = "0rem",
-	color = "var(--dark-accent)"
+	color = "var(--dark-accent)",
+	wrap = "nowrap"
 } = Astro.props as {
 	variant?: "primary" | "secondary";
 	text: string;
@@ -23,6 +24,7 @@ const {
 	paddingB: string;
 	br: string;
 	color: string;
+	wrap: string;
 };
 
 const buttonTypes = {

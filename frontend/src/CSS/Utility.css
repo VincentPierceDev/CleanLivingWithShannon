@@ -7,8 +7,15 @@
     border-radius: .313rem;
 }
 
-@media (max-width: 850px){
-    .image-container{
+.page-image {
+    width: 100%;
+    height: 100%;
+    display: inline;
+    user-select: none;
+}
+
+@media (max-width: 850px) {
+    .image-container {
         height: 15rem;
         width: 15rem;
     }

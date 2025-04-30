@@ -3,20 +3,76 @@ import '../CSS/Section.css';
 import '../CSS/Global.css';
 import '../CSS/Utility.css'
 import '../CSS/Background.css';
+
+const {title="title"} = Astro.props;
 ---
 
 
 <div class="container">
     <div class="card-border background-primary">
-        <h2>Title</h2>
+        <h2>{title}</h2>
+        <slot/>
     </div>
 </div>
 
 <style>
 
 .card-border{
-    width: 3rem;
-    height: 3rem;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 8.5rem;
+    border-radius: 1.875rem;
+    box-shadow: -10px 10px 5px rgba(0, 0, 0, .25);
+    padding-left: 7.3rem;
+    padding-right: 7.3rem;
+    padding-bottom: 7.3rem;
+}
+
+h2{
+    text-transform: capitalize;
+    color: var(--highlight-primary);
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-size: var(--fnt-sz-76);
+    letter-spacing: var(--lt-spc-3);
+    padding-top: 6.5rem;
+    margin-bottom: 6.5rem;
+}
+
+@media(max-width: 1600px)
+{
+    h2{
+        font-size: var(--fnt-sz-64);
+        padding-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}
+
+@media(max-width: 1300px)
+{
+    h2{
+        margin-bottom: 3rem;
+    }
+}
+
+@media(max-width: 850px)
+{
+    h2{
+        font-size: var(--fnt-sz-48);
+    }
+
+    .card-border{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-bottom: 3rem;
+    }
+}
+
+@media(max-width: 380px)
+{
+    h2{
+        font-size: var(--fnt-sz-24);
+    }
 }
 
 </style>
