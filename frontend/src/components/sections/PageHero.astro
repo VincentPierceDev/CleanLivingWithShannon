@@ -3,12 +3,12 @@ import '../../CSS/Global.css';
 import '../../CSS/Section.css';
 import '../../CSS/Background.css';
 
-const {heading, description} = Astro.props;
+const {heading, description, singleWord=false} = Astro.props;
 ---
 
 <div class="hero section background-primary hero-border top-design-border bottom-design-border">
     <div class="container hero-content">
-        <h1 class="font-type">{heading}</h1>
+        <h1 class=`font-type ${singleWord && 'shrink'}`>{heading}</h1>
         <p><strong class="font-type">{description}</strong></p>
     </div>
 </div>
@@ -51,6 +51,26 @@ const {heading, description} = Astro.props;
 
         p{
             font-size: var(--fnt-sz-28);
+        }
+    }
+
+    @media (max-width: 850px){
+        h1{
+            font-size: var(--fnt-sz-76);
+        }
+
+        p{
+            font-size: var(--fnt-sz-24);
+        }
+    }
+
+    @media (max-width: 380px){
+        h1{
+            font-size: var(--fnt-sz-48);
+        }
+
+        p{
+            font-size: var(--fnt-sz-16);
         }
     }
 
