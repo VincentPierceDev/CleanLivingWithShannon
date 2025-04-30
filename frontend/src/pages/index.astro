@@ -6,8 +6,14 @@ import Card from "../components/Card.astro";
 import * as HomeMeta from '../data/MarkDown/Home.md';
 import Button from "../components/LinkButton.astro";
 import enviroment from '../data/Enviroment.json';
+import ReviewContainer from "../components/ReviewContainer.astro";
+import {Image} from 'astro:assets';
 
 const rootPath = enviroment.PublicRoot;
+
+import TopCardPhoto from '../photos/MopStock.jpg'; 
+import BottomCardPhoto from '../photos/CleaningStock.jpg';
+
 ---
 
 <PageLayout title={HomeMeta.frontmatter.title} description={HomeMeta.frontmatter.description} linkMask={[true, false, false, false]}>
@@ -17,7 +23,7 @@ const rootPath = enviroment.PublicRoot;
 			<div class="card-grid-content">
 				<p class="grid-text">From the moment I enter the door, my goal is to leave your space <strong>clean and refreshing.</strong> With every visit I am commited to making the space look and feel it's very best. That's what sets Clean Living with Shannon apart; that's the clean difference.</p>
 				<div class="image-container card-image image-grid">
-					<img class="page-image" src={`${rootPath}/Photos/MopStock.jpg`} alt="image of mopping">
+					<Image class="page-image" src={TopCardPhoto} alt="image of mopping the floor" quality={"mid"} width={762} sizes="(max-width: 800px) 100vw, 762px"/>
 				</div>
 				<div class="button-container">
                     <Button class="button" href={`${rootPath}/Services`} text="Checkout My Services" textSize="var(--fnt-sz-32)" paddingT="2.5rem" paddingB="2.5rem" paddingL="5rem" paddingR="5rem" br="1.25rem" cardButton={true}/>
@@ -28,13 +34,10 @@ const rootPath = enviroment.PublicRoot;
 			<div class="card-flex-content">
 				<p class="flex-text">Proudly serving <strong>East Texas</strong>, I treat every home, office, and business like my own. With utmost care and attention to fine details, I take pride in finishing a job from start to finish. When you invite me in, you're not just consulting a cleaner, you are hiring someone who genuinely cares and respects your space.</p>
 				<div class="image-container card-image image-flex left-display">
-					<img class="page-image" src={`${rootPath}/Photos/CleaningStock.jpg`} alt="image of mopping">
+					<Image class="page-image" src={BottomCardPhoto} alt="image of wiping a surface" quality={"mid"} width={762} sizes="(max-width: 800px) 100vw, 762px"/>
 				</div>
 			</div>
-			<div class="review-container">
-					<span class="review-intro">Don't just take our word for it.</span>
-					<span class="review-description">Here is what other East Texans are saying about Clean Living with Shannon</span>
-			</div>
+			<ReviewContainer/>
 		</Card>
 	</BodySection>
 </PageLayout>
@@ -55,30 +58,6 @@ const rootPath = enviroment.PublicRoot;
 		gap: 10%;
 		flex-wrap: nowrap;
 		flex-direction: row-reverse;
-	}
-
-	.review-container{
-		display: flex;
-		flex-direction: column;
-		text-align: center;
-		margin-top: 4.5rem;
-	}
-
-	.review-intro{
-		color: var(--highlight-primary);
-		letter-spacing: var(--lt-spc-3);
-		font-size: var(--fnt-sz-64);
-		font-weight: light;
-		text-transform: capitalize;
-		font-family: var(--font-primary);
-	}
-
-	.review-description{
-		color: var(--highlight-secondary);
-		text-align: center;
-		font-family: var(--font-primary);
-		font-size: var(--fnt-sz-32);
-		margin-top: 1rem;
 	}
 
 	.card-image{
@@ -139,14 +118,6 @@ const rootPath = enviroment.PublicRoot;
 		.button-container{
 			margin-top: -2rem;
 			margin-left: 5%;
-		}
-
-		.review-intro{
-			font-size: var(--fnt-sz-56);
-		}
-
-		.review-description{
-			font-size: var(--fnt-sz-28);
 		}
 
 		.flex-text{
@@ -225,14 +196,6 @@ const rootPath = enviroment.PublicRoot;
 			height: 17rem;
 		}
 
-		.review-intro{
-			font-size: var(--fnt-sz-48);
-		}
-
-		.review-description{
-			font-size: var(--fnt-sz-24);
-		}
-
 		p{
 			margin-top: 0;
 			margin-bottom: 0;
@@ -254,14 +217,6 @@ const rootPath = enviroment.PublicRoot;
 		.card-image{
 			width: 10rem;
 			height: 8rem;
-		}
-
-		.review-intro{
-			font-size: var(--fnt-sz-32);
-		}
-
-		.review-description{
-			font-size: var(--fnt-sz-20);
 		}
 
 		p{

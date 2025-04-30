@@ -1,9 +1,13 @@
 ---
 import LinkButton from "../LinkButton.astro";
 import enviroment from '../../data/Enviroment.json';
+import { Image } from "astro:assets";
 import '../../CSS/Background.css';
 import '../../CSS/Section.css';
 import '../../CSS/Utility.css';
+
+import DesktopLogo from '../../photos/DesktopLogoS1.png';
+import MobileLogo from '../../photos/MobileLogoS1.png';
 
 const{linkMask = []} = Astro.props;
 const rootPath = enviroment.PublicRoot;
@@ -14,8 +18,12 @@ const rootPath = enviroment.PublicRoot;
 		<nav id="navbar">
 			<div class="nav-content">
 				<input type="checkbox" id="nav-menu-active" />
-				<a href={`${rootPath}/`} class="desktop-logo"><img class="logo-image" src={`${rootPath}/DesktopLogoS1.png`} alt="Home logo" width="250" height="100"/></a>
-				<a href={`${rootPath}/`} class="mobile-logo"><img class="logo-image" src={`${rootPath}/MobileLogoS1.png`} alt="Home logo" width="100" height="100"/></a>
+				<a href={`${rootPath}/`} class="desktop-logo">
+					<Image class="logo-image" src={DesktopLogo} alt="home logo" width="250" height="100" quality={"mid"}/>
+				</a>
+				<a href={`${rootPath}/`} class="mobile-logo">
+					<Image class="logo-image" src={MobileLogo} alt="home logo" width="100" height="100" quality={"mid"}/>
+				</a>
 				<label for="nav-menu-active" class="open-nav-menu-btn">
 					<img class="hamburger-menu" src={`${rootPath}/HamburgerIcon.png`} alt="Nav Menu" width="75" height="75"/>
 				</label>

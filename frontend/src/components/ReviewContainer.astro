@@ -1,0 +1,112 @@
+---
+import enviroment from "../data/Enviroment.json";
+import '../CSS/Global.css';
+const rootPath = enviroment.PublicRoot;
+---
+
+
+<div class="review-container">
+	<span class="review-intro">Don't just take our word for it.</span>
+	<span class="review-description">Here is what other East Texans are saying about Clean Living with Shannon</span>
+    <div class="testimonial-section">
+        <button id="left-navigation">
+            <img src=`${rootPath}/NavIcon.png` alt="Left nav arrow"/>
+        </button>
+            <div class="testimonal-box">
+
+            </div>
+        <button id="right-navigation">
+            <img src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
+        </button>
+        <div class="elipses">
+            circle circle circle
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .review-container{
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		margin-top: 4.5rem;
+		outline: 2px solid blue;
+	}
+
+	.review-intro{
+		color: var(--highlight-primary);
+		letter-spacing: var(--lt-spc-3);
+		font-size: var(--fnt-sz-64);
+		font-weight: light;
+		text-transform: capitalize;
+		font-family: var(--font-primary);
+	}
+
+	.review-description{
+		color: var(--highlight-secondary);
+		text-align: center;
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-32);
+		margin-top: 1rem;
+	}
+
+    .testimonial-section{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    #left-navigation{
+         scale: -1 1;
+    }
+
+    #right-navigation{
+       
+    }
+
+    button{
+        background: none;
+        border: none;
+        user-select: none;
+    }
+
+    button:hover{
+        outline: 3px solid var(--dark-accent);
+        cursor: pointer;
+    }
+
+    @media(max-width: 1600px)
+    {
+		.review-intro{
+			font-size: var(--fnt-sz-56);
+		}
+
+		.review-description{
+			font-size: var(--fnt-sz-28);
+		}
+    }
+
+    @media(max-width: 850px)
+    {
+        .review-intro{
+			font-size: var(--fnt-sz-48);
+		}
+
+		.review-description{
+			font-size: var(--fnt-sz-24);
+		}
+    }
+
+    @media(max-width: 380px)
+    {
+        .review-intro{
+			font-size: var(--fnt-sz-32);
+		}
+
+		.review-description{
+			font-size: var(--fnt-sz-20);
+		}
+    }
+
+</style>

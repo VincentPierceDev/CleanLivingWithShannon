@@ -1,8 +1,11 @@
 ---
 import enviroment from '../../data/Enviroment.json';
+import { Image } from 'astro:assets';
 import '../../CSS/Background.css';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
+
+import PageLogo from '../../photos/DesktopLogoS1.png'
 
 const currentYear = new Date().getFullYear();
 const rootPath = enviroment.PublicRoot;
@@ -12,8 +15,10 @@ const rootPath = enviroment.PublicRoot;
     <div class="container">
         <div class="footer-content">
             <div class="brand-content">
-                <img class="logo-image" src={`${rootPath}/DesktopLogoS1.png`} alt="Page logo" width="250" height="100">
-                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo" src={`${rootPath}/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"/></a>
+                <Image class="logo-image" src={PageLogo} alt="page logo" width="250" height="100" quality={"mid"} sizes="(max-width: 800px) 100vw, 250px"/>
+                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr">
+                    <Image class="facebook-logo" src={`${rootPath}/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"/>
+                </a>
             </div>
             <div class="footer-info">
                         <p>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>

@@ -1,12 +1,17 @@
 ---
 import Button from "../LinkButton.astro";
 import enviroment from '../../data/Enviroment.json';
+import {Image} from 'astro:assets';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 import '../../CSS/Background.css';
 import '../../CSS/Utility.css';
 
 const rootPath = enviroment.PublicRoot;
+
+import FrontImage from '../../photos/BeforeOven.png';
+import LeftImage from '../../photos/AfterOven.png';
+import RightImage from '../../photos/AfterOven.png';
 ---
 
 
@@ -28,15 +33,15 @@ const rootPath = enviroment.PublicRoot;
                 <div class="album-container">
                     <div class="image-container home-hero-image left-image round-border">
                         <div class="rotated-image-wrapper">
-                            <img class="page-image round-border" src={`${rootPath}/Photos/AfterOven.png`} alt="Clean stove image">
+                          <Image class="page-image round-border" src={LeftImage} alt="image of a clean oven" quality={"mid"} width={304} sizes="(max-width: 800px) 100vw, 304px"/>
                         </div>
                     </div>
                     <div class="image-container home-hero-image center-image round-border">
-                        <img class="page-image round-border" src={`${rootPath}/Photos/BeforeOven.png`} alt="Dirty stove image" style="border-radius: 1.8rem">
+                        <Image class="page-image round-border" src={FrontImage} alt="Image of a dirty oven" quality={"mid"} width={320} sizes="(max-width: 800px) 100vw, 320px"/>
                     </div>
                     <div class="image-container home-hero-image right-image round-border">
                         <div class="rotated-image-wrapper">
-                            <img class="page-image round-border" src={`${rootPath}/Photos/AfterOven.png`} alt="Clean stove image">
+                            <Image class="page-image round-border" src={RightImage} alt="Image of a clean oven" quality={"mid"} width={304} sizes="(max-width: 800px) 100vw, 304px"/>
                         </div>
                     </div>
                 </div>
