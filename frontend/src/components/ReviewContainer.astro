@@ -14,7 +14,7 @@ interface ReviewModule {
 }
 
 //const reviews = [GWC, DBWR, RSLR, KWMC, DPR, WSR, DHP];
-const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md');
+const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md', {eager: true});
 const reviewsArray = Object.values(reviews);
 ---
 
@@ -378,7 +378,7 @@ const reviewsArray = Object.values(reviews);
     }
 
     const updateReview = async () => {
-        const currentReview = await reviewsArray[currentIndex];
+        const currentReview = reviewsArray[currentIndex];
     
 
         //set the element display
