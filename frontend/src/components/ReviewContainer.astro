@@ -368,7 +368,7 @@ const reviews = await Astro.glob('../data/Markdown/TestimonialsAndReviews/*.md')
     }
 
     const updateReview = async () => {
-        const currentReview = await reviewsArray[currentIndex];
+        const currentReview = reviewsArray[currentIndex];
         console.log(currentReview.default);
     
 
