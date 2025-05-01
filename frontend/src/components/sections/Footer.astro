@@ -23,12 +23,12 @@ const rootPath = enviroment.PublicRoot;
             <div class="footer-info">
                         <p>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>
                 <a class="attrib-link" href={`${rootPath}/Attrib`}>Attributions</a>
-                <ul>
-                    <li><a href={`${rootPath}/`}>Home</a></li>
-                    <li><a href={`${rootPath}/About`}>About</a></li>
-                    <li><a href={`${rootPath}/Services`}>Services</a></li>
-                    <li><a href={`${rootPath}/Contact`}>Contact</a></li>
-                </ul>
+                <div class="page-links">
+                    <a href={`${rootPath}/`}>Home</a>
+                    <a href={`${rootPath}/About`}>About</a>
+                    <a href={`${rootPath}/Services`}>Services</a>
+                    <a href={`${rootPath}/Contact`}>Contact</a>
+                </div>
             </div>
         </div>
     </div>
@@ -69,10 +69,11 @@ const rootPath = enviroment.PublicRoot;
         margin-top: 2.14rem;
     }
 
-    ul{
+    .page-links{
         display: flex;
         margin-top: 2.14rem;
         gap: 2.8rem;
+        align-items: center;
     }
 
     a{
@@ -128,7 +129,7 @@ const rootPath = enviroment.PublicRoot;
             margin-left: 0rem;
         }
 
-        ul{
+        .page-links{
             flex-direction: row;
             gap: 1.25rem;
             margin: 0;
@@ -142,7 +143,7 @@ const rootPath = enviroment.PublicRoot;
     }
 
     @media (max-width: 350px){
-        ul{
+        .page-links{
             flex-direction: column;
             text-align: center;
         }

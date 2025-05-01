@@ -1,7 +1,9 @@
+@import url('./FontFaces.css');
+
 :root{
-    --color-primary: #D64545;
+    --color-primary: #C03F3F;
     --color-secondary: #E9DCA7;
-    --highlight-primary: #98C0EA;
+    --highlight-primary: #86B9E7;
     --highlight-secondary:  #FFFFFF;
     --accent-primary: #3C4161;
     --accent-secondary: #1b1f3b;
@@ -57,3 +59,4 @@ a{
 strong{
     font-weight: normal;
 }
+
