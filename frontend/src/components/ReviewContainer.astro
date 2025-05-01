@@ -1,7 +1,11 @@
 ---
 import enviroment from "../data/Enviroment.json";
 import '../CSS/Global.css';
+
 const rootPath = enviroment.PublicRoot;
+
+//const reviews = [GWC, DBWR, RSLR, KWMC, DPR, WSR, DHP];
+const reviews = await Astro.glob('../data/Markdown/TestimonialsAndReviews/*.md');
 ---
 
 
@@ -10,16 +14,21 @@ const rootPath = enviroment.PublicRoot;
 	<span class="review-description">Here is what other East Texans are saying about Clean Living with Shannon</span>
     <div class="testimonial-section">
         <button id="left-navigation">
-            <img src=`${rootPath}/NavIcon.png` alt="Left nav arrow"/>
+            <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Left nav arrow"/>
         </button>
-            <div class="testimonal-box">
-
-            </div>
+        <div class="testimonial-box">
+            <span id="testimonial-source"></span>
+            <blockquote id="testimonial-comment" cite="https://www.facebook.com/profile.php?id=61562022045028">
+            </blockquote>
+            <cite id="testimonial-author"><a id="author-tag"class="author-text" href="https://www.facebook.com/profile.php?id=61562022045028&sk=reviews" target="_blank"></a></cite>
+        </div>
         <button id="right-navigation">
-            <img src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
+            <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
         </button>
-        <div class="elipses">
-            circle circle circle
+        <div id="elipse-container">
+            {reviews.map((_, index) => (
+                <div id={`elipse-${index}`} class="elipse"/>
+            ))}
         </div>
     </div>
 </div>
@@ -31,7 +40,6 @@ const rootPath = enviroment.PublicRoot;
 		flex-direction: column;
 		text-align: center;
 		margin-top: 4.5rem;
-		outline: 2px solid blue;
 	}
 
 	.review-intro{
@@ -53,16 +61,134 @@ const rootPath = enviroment.PublicRoot;
 
     .testimonial-section{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: auto 1fr auto;
         grid-template-rows: auto auto;
+        column-gap: 1rem;
+        row-gap: 2rem;
+        justify-items: center;
+        margin-top: 4.375rem;
+    }
+
+    .testimonial-box{
+        display: flex;
+        flex-direction: column;
+        height: 25rem;
+        width: 100%;
+        grid-column: 2;
+        grid-row: 1;
+        border: 2px solid var(--highlight-secondary);
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    .author-text{
+        color: var(--highlight-secondary);
+        font-size: var(--fnt-sz-24);
+        font-family: var(--font-primary);
+        font-weight: light;
+        text-decoration: underline;
+        text-decoration-color: var(--color-primary);
+        transition: text-decoration-color .2s ease-in-out;
+    }
+
+    .author-text:hover{
+        text-decoration-color: var(--highlight-secondary);
+        transition: text-decoration .5s ease;
+    }
+ 
+    .elipse{
+        width: 2rem;
+        height: 2rem;
+        border: 5px solid var(--highlight-secondary);
+        border-radius: 50%;
+        transition: background .3s ease-in-out;
+    }
+
+    .filled{
+        background: var(--highlight-secondary);
+        transition: background .3s ease-in-out;
+    }
+
+    .fade{
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+
+    #testimonial-source{
+        font-size: var(--fnt-sz-32);
+        font-family: var(--font-primary);
+        font-weight: bold;
+        text-transform: capitalize;
+        color: var(--highlight-secondary);
+        text-align: left;
+    }
+
+    #left-navigation,
+    #right-navigation{
+        width: fit-content;
+        height: fit-content;
+        align-self: center;
     }
 
     #left-navigation{
-         scale: -1 1;
+        grid-column: 1;
+        grid-row: 1;
+        scale: -1 1;
     }
 
     #right-navigation{
-       
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #elipse-container{
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        gap: 1rem;
+    }
+
+    #testimonial-comment{
+        color: var(--highlight-secondary);
+        font-size: var(--fnt-sz-32);
+        font-family: var(--font-primary);
+        font-weight: 200;
+        line-height: 3rem;
+        margin: 3rem;
+    }
+
+    #testimonial-comment::before{
+        content: open-quote;
+        left: auto;
+        top: auto;
+        margin-top: 1rem;
+        margin-left: -4rem; /*alinging left, so can't use margin right*/
+    }
+
+    #testimonial-comment::after{
+        content: close-quote;
+        right: auto;
+        top: auto;
+        margin-top: 5rem;
+        margin-left: .5rem;
+    }
+
+    #testimonial-comment::after,
+    #testimonial-comment::before
+    {
+        font-family: var(--font-primary);
+        font-size: var(--fnt-sz-200);
+        font-weight: bolder;
+        position: absolute;
+        display: inline-block;
+    }
+
+    #testimonial-author{
+        margin-top: 5rem;
+        position: absolute;
+        left:auto;
+        bottom: auto;
+        translate: 30.5rem 15rem;
     }
 
     button{
@@ -76,8 +202,16 @@ const rootPath = enviroment.PublicRoot;
         cursor: pointer;
     }
 
+    button:active{
+        box-shadow: inset 0px 0px 10px black;
+    }
+
     @media(max-width: 1600px)
     {
+        .testimonial-box{
+            height: 30rem;
+        }
+
 		.review-intro{
 			font-size: var(--fnt-sz-56);
 		}
@@ -85,6 +219,49 @@ const rootPath = enviroment.PublicRoot;
 		.review-description{
 			font-size: var(--fnt-sz-28);
 		}
+
+        .nav-image{
+           scale: 60%;
+        }
+
+        #testimonial-author{
+            margin-top: 5rem;
+            position: absolute;
+            left:auto;
+            bottom: auto;
+            translate: 22.5rem 20rem;
+        }
+    }
+
+    @media(max-width: 1400px)
+    {
+        .testimonial-section{
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto auto;
+        }
+
+        .testimonial-box{
+            grid-column: 1 / span 2;
+            grid-row: 1;
+        }
+
+        #elipse-container{
+            grid-column: 1 / span 2;
+            grid-row: 2;
+        }
+
+        #left-navigation{
+            grid-row: 3;
+            grid-column: 1;
+            align-self: auto;
+        }
+
+        #right-navigation{
+            grid-row: 3;
+            grid-column: 2;
+            align-self: auto;
+        }
+
     }
 
     @media(max-width: 850px)
@@ -96,6 +273,67 @@ const rootPath = enviroment.PublicRoot;
 		.review-description{
 			font-size: var(--fnt-sz-24);
 		}
+
+        .nav-image{
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .testimonial-section{
+            margin-top: 1rem;
+        }
+
+        .testimonial-box{
+            height: 42.5rem;
+        }
+
+        .elipse{
+            width: 1rem;
+            height: 1rem;
+            border: 1px solid var(--highlight-secondary);
+        }
+
+        #testimonial-source{
+            font-size: var(--fnt-sz-24);
+            text-align: center;
+        }
+
+        #testimonial-comment{
+            font-size: var(--fnt-sz-24);
+            line-height: 2.25rem;
+            margin: .5rem;
+        }
+
+        #left-navigation,
+        #right-navigation{
+            width: 5rem;
+            height: 5rem;
+            margin-top: -1rem;
+            padding: 0;
+        }
+
+        #testimonial-comment::after,
+        #testimonial-comment::before{
+            font-size: var(--fnt-sz-48);
+            margin: 0; /*reset the weird margins from above */
+        }
+
+        #testimonial-comment::before{
+            margin-left: -1rem;
+        }
+
+        #testimonial-comment::after{
+            margin-left: .2rem;
+        }
+
+        #testimonial-author{
+            margin-top: 5rem;
+            position: absolute;
+            left:auto;
+            bottom: auto;
+            translate: 1.5rem 33rem;
+        }
+       
     }
 
     @media(max-width: 380px)
@@ -110,3 +348,60 @@ const rootPath = enviroment.PublicRoot;
     }
 
 </style>
+
+<script define:vars={{reviewsArray : reviews}}>
+
+    let currentIndex = 0;
+
+    const testimonySource = document.getElementById("testimonial-source");
+    const testimonyComment = document.getElementById("testimonial-comment");
+    const testimonyAuthor = document.getElementById("author-tag");
+
+    function ActivateFade(className){
+        testimonySource.classList.remove(className);
+        testimonyAuthor.classList.remove(className);
+        testimonyComment.classList.remove(className);
+
+        testimonySource.classList.add(className);
+        testimonyComment.classList.add(className);
+        testimonyAuthor.classList.add(className);
+    }
+
+    const updateReview = async () => {
+        const currentReview = await reviewsArray[currentIndex];
+        console.log(currentReview.default);
+    
+
+        //set the element display
+        testimonySource.textContent = currentReview.frontmatter.source + ":";
+        testimonyComment.textContent = currentReview.frontmatter.content;
+        testimonyAuthor.textContent = "- " + currentReview.frontmatter.author;
+
+        //update the elipses
+        for (let i = 0; i < reviewsArray.length; i++)
+        {
+            const elipse = document.getElementById("elipse-" + i);
+            if(i === currentIndex) {
+                elipse.classList.add("filled");
+            } else {
+                elipse.classList.remove("filled");
+            }
+        }
+    };
+
+     const leftButton = document.getElementById("left-navigation");
+     const rightButton = document.getElementById("right-navigation");
+
+     rightButton?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % reviewsArray.length;
+        updateReview();
+     });
+
+     leftButton?.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + reviewsArray.length) % reviewsArray.length;
+        updateReview();
+     });
+
+     //initialize the first render
+     updateReview();
+</script>

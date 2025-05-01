@@ -7,13 +7,14 @@ import '../CSS/Background.css';
 const {title="title"} = Astro.props;
 ---
 
-
-<div class="container">
-    <div class="card-border background-primary">
-        <h2>{title}</h2>
-        <slot/>
+<section>
+    <div class="container">
+        <div class="card-border background-primary">
+            <h2>{title}</h2>
+            <slot/>
+        </div>
     </div>
-</div>
+</section>
 
 <style>
 
