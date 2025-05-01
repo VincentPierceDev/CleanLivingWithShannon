@@ -4,8 +4,18 @@ import '../CSS/Global.css';
 
 const rootPath = enviroment.PublicRoot;
 
+interface ReviewModule {
+    defualt: string;
+    frontmatter: {
+        source: string;
+        content: string;
+        author: string;
+    }
+}
+
 //const reviews = [GWC, DBWR, RSLR, KWMC, DPR, WSR, DHP];
-const reviews = await Astro.glob('../data/Markdown/TestimonialsAndReviews/*.md');
+const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md', {eager: true});
+const reviewsArray = Object.values(reviews);
 ---
 
 
@@ -26,7 +36,7 @@ const reviews = await Astro.glob('../data/Markdown/TestimonialsAndReviews/*.md')
             <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
         </button>
         <div id="elipse-container">
-            {reviews.map((_, index) => (
+            {reviewsArray.map((_, index) => (
                 <div id={`elipse-${index}`} class="elipse"/>
             ))}
         </div>
@@ -349,7 +359,7 @@ const reviews = await Astro.glob('../data/Markdown/TestimonialsAndReviews/*.md')
 
 </style>
 
-<script define:vars={{reviewsArray : reviews}}>
+<script define:vars={{reviewsArray : reviewsArray}}>
 
     let currentIndex = 0;
 
