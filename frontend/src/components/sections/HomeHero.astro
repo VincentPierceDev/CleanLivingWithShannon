@@ -10,7 +10,6 @@ import '../../CSS/Utility.css';
 const rootPath = enviroment.PublicRoot;
 
 const imageObjects = import.meta.glob('../../../src/photos/HomeDisplay/*.{jpg,png}');
-const imagePaths = Object.keys(imageObjects);
 ---
 
 <section class="section">
@@ -32,15 +31,15 @@ const imagePaths = Object.keys(imageObjects);
                 <div class="album-container">
                     <div class="image-container home-hero-image left-image round-border">
                         <div class="rotated-image-wrapper">
-                          <img id="left-image" class="page-image round-border" src="" alt="image of a clean oven" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
+                          <img id="left-image" class="page-image round-border" src="" alt="left cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
                         </div>
                     </div>
                     <div class="image-container home-hero-image center-image round-border">
-                        <img id="front-image" class="page-image round-border" src="" alt="Image of a dirty oven" width={320} sizes="(max-width: 800px) 100vw, 320px"/>
+                        <img id="front-image" class="page-image round-border" src="" alt="middle cleaning display image" width={320} sizes="(max-width: 800px) 100vw, 320px"/>
                     </div>
                     <div class="image-container home-hero-image right-image round-border">
                         <div class="rotated-image-wrapper">
-                            <img id="right-image" class="page-image round-border" src="" alt="Image of a clean oven" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
+                            <img id="right-image" class="page-image round-border" src="" alt="right cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
                         </div>
                     </div>
                 </div>
@@ -336,7 +335,7 @@ const imagePaths = Object.keys(imageObjects);
 </style>
 
 <script>
-    const fileDirectory = '../../src/photos/HomeDisplay/';
+    const fileDirectory = 'src/photos/HomeDisplay/';
 
     //before 0, after 1
     const beforeAfterPaths = new Map([
