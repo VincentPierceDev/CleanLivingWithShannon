@@ -87,6 +87,7 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         border: 2px solid var(--highlight-secondary);
         border-radius: 1rem;
         padding: 1rem;
+        position: relative;
     }
 
     .author-text{
@@ -117,7 +118,12 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         transition: background .3s ease-in-out;
     }
 
-    .fade{
+    .fade-in{
+        opacity: 1;
+        transition: opacity .3s ease;
+    }
+
+    .fade-out{
         opacity: 0;
         transition: opacity .3s ease;
     }
@@ -192,11 +198,10 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
     }
 
     #testimonial-author{
-        margin-top: 5rem;
         position: absolute;
-        left:auto;
-        bottom: auto;
-        translate: 30.5rem 15rem;
+        bottom: 0;
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
     }
 
     button{
@@ -231,18 +236,15 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         .nav-image{
            scale: 60%;
         }
-
-        #testimonial-author{
-            margin-top: 5rem;
-            position: absolute;
-            left:auto;
-            bottom: auto;
-            translate: 22.5rem 20rem;
-        }
     }
 
     @media(max-width: 1400px)
     {
+
+        .testimonial-box{
+            height: fit-content;
+        }
+
         .testimonial-section{
             grid-template-columns: auto auto;
             grid-template-rows: auto auto auto;
@@ -279,7 +281,7 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 		}
 
 		.review-description{
-			font-size: var(--fnt-sz-24);
+			font-size: var(--fnt-sz-20);
 		}
 
         .nav-image{
@@ -292,7 +294,7 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         }
 
         .testimonial-box{
-            height: 42.5rem;
+            height: 30rem;
         }
 
         .elipse{
@@ -301,14 +303,18 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
             border: 1px solid var(--highlight-secondary);
         }
 
+        .author-text{
+            font-size: var(--fnt-sz-20);
+        }
+
         #testimonial-source{
             font-size: var(--fnt-sz-24);
             text-align: center;
         }
 
         #testimonial-comment{
-            font-size: var(--fnt-sz-24);
-            line-height: 2.25rem;
+            font-size: var(--fnt-sz-20);
+            line-height: 1.875rem;
             margin: .5rem;
         }
 
@@ -333,15 +339,6 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         #testimonial-comment::after{
             margin-left: .2rem;
         }
-
-        #testimonial-author{
-            margin-top: 5rem;
-            position: absolute;
-            left:auto;
-            bottom: auto;
-            translate: 1.5rem 33rem;
-        }
-       
     }
 
     @media(max-width: 380px)
@@ -353,26 +350,63 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 		.review-description{
 			font-size: var(--fnt-sz-20);
 		}
+
+        .author-text{
+            font-size: var(--fnt-sz-16);
+        }
+
+        .testimonial-box{
+            height: fit-content;
+        }
+
+        #testimonial-source{
+            font-size: var(--fnt-sz-20);
+        }
+
+        #testimonial-comment{
+            font-size: var(--fnt-sz-16);
+            line-height: 1.5rem;
+            margin: .5rem;
+        }
+
+        #testimonial-author{
+            margin: 0;
+        }
     }
 
 </style>
 
 <script define:vars={{reviews : reviews}}>
 
-    let currentIndex = 0;
+    let currentIndex = 2;
+    const fadeHalfTime = 300;
 
     const testimonySource = document.getElementById("testimonial-source");
     const testimonyComment = document.getElementById("testimonial-comment");
     const testimonyAuthor = document.getElementById("author-tag");
 
-    function ActivateFade(className){
-        testimonySource.classList.remove(className);
-        testimonyAuthor.classList.remove(className);
-        testimonyComment.classList.remove(className);
+    function FadeContent(){
+        testimonyAuthor.classList.remove("fade-in");
+        testimonyComment.classList.remove("fade-in");
+        testimonySource.classList.remove("fade-in");
 
-        testimonySource.classList.add(className);
-        testimonyComment.classList.add(className);
-        testimonyAuthor.classList.add(className);
+        testimonySource.classList.add("fade-out");
+        testimonyAuthor.classList.add("fade-out");
+        testimonyComment.classList.add("fade-out");
+
+        setTimeout(() => {
+            FadeIn();
+        }, fadeHalfTime);
+    }
+
+    function FadeIn(){
+        testimonySource.classList.remove("fade-out");
+        testimonyAuthor.classList.remove("fade-out");
+        testimonyComment.classList.remove("fade-out");
+
+        testimonySource.classList.add("fade-in");
+        testimonyAuthor.classList.add("fade-in");
+        testimonyComment.classList.add("fade-in");
     }
 
     const updateReview = async () => {
@@ -401,12 +435,20 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 
         rightButton?.addEventListener("click", () => {
             currentIndex = (currentIndex + 1) % reviews.length;
-            updateReview();
+            FadeContent();
+
+            setTimeout(() => {
+                updateReview();
+            }, fadeHalfTime);
         });
 
         leftButton?.addEventListener("click", () => {
             currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-            updateReview();
+            FadeContent();
+
+            setTimeout(() => {
+                updateReview();
+            }, fadeHalfTime);
         });
     
 

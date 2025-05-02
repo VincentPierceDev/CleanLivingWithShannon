@@ -2,11 +2,104 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/PageHero.astro";
 import BodySection from "../components/sections/BodySection.astro";
-import * as AboutMeta from '../data/MarkDown/About.md';
+import * as AboutMeta from "../data/MarkDown/About.md";
+import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+
+import "../CSS/Global.css";
+
+import ProfilePicture from "../photos/ShannonPhoto.jpg";
 ---
 
-<PageLayout title={AboutMeta.frontmatter.title} description={AboutMeta.frontmatter.description} linkMask={[false, true, false, false]}>
-	<Hero heading="About Me" description="the clean living with shannon story"/>
-	<BodySection title="Stay in the loop!" buttonType={false} buttonText="Contact Me!" link="/Contact">
+<PageLayout
+	title={AboutMeta.frontmatter.title}
+	description={AboutMeta.frontmatter.description}
+	linkMask={[false, true, false, false]}
+>
+	<Hero
+		heading="About Me"
+		description="the clean living with shannon story"
+	/>
+	<BodySection
+		title="Stay in the loop!"
+		buttonType={false}
+		buttonText="Contact Me!"
+		link="/Contact"
+	>
+		<Card title="Meet shannon">
+			<div class="image-container profile-pic square-image">
+				<Image
+					class="page-image profile-pic"
+					src={ProfilePicture}
+					alt="profile picture"
+					quality={"max"}
+					width={1536}
+					height={2048}
+					loading="lazy"
+				/>
+			</div>
+			<p>
+				Hi! I am Shannon, the beating heart behind Clean Living with
+				Shannon. I started this business with the goal of <strong
+					>promoting cleanliness</strong
+				> among fellow <strong>East Texans.</strong> I want to help make
+				people feel more comfortable in their personal spaces. With plenty
+				of hands-on experience, I strongly believe that cleaning is more
+				than just sweeping and dusting. It's about creating a less stress
+				inducing, refreshing environment. I take pride in delivering the
+				detailed and reliable cleaning required, that leaves my clients with
+				a genuine sense of being cared for. Whether it is a deep clean before
+				an event, gathering, metting, and any other hosted events, regular
+				upkeep for an Airbnb, or a simple touch-up, I am here to aid you!
+				I passionately use safe and effective cleaning products in order
+				to sustain my care for your property. My clients can expect and count
+				on me to show up on time, and leave their space sprkling! Clean Living
+				with Shannon is not a large company with a team backing it; it's
+				a small local business that is built upon relationships, reputation,
+				and results. When you invite me in, you're not just consulting a
+				cleaner, you are hiring someone who genuinely cares and respects
+				your space.
+			</p>
+			<span
+				>If you are in <strong>East Texas</strong> and looking for a cleaning
+				service that leaves you proud, I'd love to present you, my Clean
+				Living difference!</span
+			>
+		</Card>
 	</BodySection>
 </PageLayout>
+
+<style>
+	.profile-pic {
+		float: right;
+		margin-left: 2rem;
+		margin-bottom: 2rem;
+		border-radius: 50%;
+	}
+
+	.square-image {
+		width: 30rem;
+		height: 30rem;
+	}
+
+	p,
+	span {
+		color: var(--highlight-secondary);
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-32);
+		line-height: 3rem;
+	}
+
+	p {
+		font-weight: normal;
+		margin-bottom: 5rem;
+	}
+
+	span {
+		font-weight: bold;
+	}
+
+	span strong {
+		font-weight: bold;
+	}
+</style>
