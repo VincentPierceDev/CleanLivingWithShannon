@@ -1,6 +1,7 @@
 ---
 import Button from "../LinkButton.astro";
 import enviroment from '../../data/Enviroment.json';
+import { Image } from "astro:assets";
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 import '../../CSS/Background.css';
@@ -40,15 +41,15 @@ const rootPath = enviroment.PublicRoot;
                 <div class="album-container">
                     <div class="image-container home-hero-image left-image round-border">
                         <div class="rotated-image-wrapper">
-                          <img id="left-image" class="page-image round-border" src="" alt="left cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
+                            <Image id="left-image" class="page-image round-border" src={images[0]} alt="left cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px" loading={"lazy"}/>
                         </div>
                     </div>
                     <div class="image-container home-hero-image center-image round-border">
-                        <img id="front-image" class="page-image round-border" src="" alt="middle cleaning display image" width={320} sizes="(max-width: 800px) 100vw, 320px"/>
+                        <Image id="front-image" class="page-image round-border" src={images[0]} alt="middle cleaning display image" width={320} sizes="(max-width: 800px) 100vw, 320px" loading={"lazy"}/>
                     </div>
                     <div class="image-container home-hero-image right-image round-border">
                         <div class="rotated-image-wrapper">
-                            <img id="right-image" class="page-image round-border" src="" alt="right cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px"/>
+                            <Image id="right-image" class="page-image round-border" src={images[0]} alt="right cleaning display image" width={304} sizes="(max-width: 800px) 100vw, 304px" loading={"lazy"} format="webp"/>
                         </div>
                     </div>
                 </div>
@@ -401,9 +402,9 @@ const rootPath = enviroment.PublicRoot;
         const path3 = beforeAfterPaths.get(rightKey);
       
         if(path1 && path2 && path3){
-            frontImage.src = path1[startImage];
-            leftImage.src = path2[leftCardImageIndex];
-            rightImage.src = path3[rightCardImageIndex];
+            frontImage.setAttribute('src', path1[startImage]);
+            leftImage.setAttribute('src', path2[leftCardImageIndex]);
+            rightImage.setAttribute('src', path3[rightCardImageIndex]);
         }
     }
 
