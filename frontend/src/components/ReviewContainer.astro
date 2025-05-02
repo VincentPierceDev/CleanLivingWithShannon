@@ -375,8 +375,8 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         testimonyAuthor.classList.add(className);
     }
 
-    const updateReview = () => {
-        const currentReview = reviews[currentIndex];
+    const updateReview = async () => {
+        const currentReview = await reviews[currentIndex];
     
         //set the element display
         testimonySource.textContent = currentReview.frontmatter.source + ":";
@@ -400,12 +400,12 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         const rightButton = document.getElementById("right-navigation");
 
         rightButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % reviewsArray.length;
+            currentIndex = (currentIndex + 1) % reviews.length;
             updateReview();
         });
 
         leftButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + reviewsArray.length) % reviewsArray.length;
+            currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
             updateReview();
         });
     
