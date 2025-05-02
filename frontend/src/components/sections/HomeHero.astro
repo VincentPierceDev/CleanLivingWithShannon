@@ -1,15 +1,24 @@
 ---
 import Button from "../LinkButton.astro";
 import enviroment from '../../data/Enviroment.json';
-import {Image} from 'astro:assets';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 import '../../CSS/Background.css';
 import '../../CSS/Utility.css';
 
+import BeforeOven from "../../photos/HomeDisplay/BeforeOven.png";
+import AfterOven from "../../photos/HomeDisplay/AfterOven.png";
+import BeforeKitchen from "../../photos/HomeDisplay/MessyKitchen.jpg";
+import AfterKitchen from "../../photos/HomeDisplay/CleanKitchen.jpg";
+import BeforeStove from "../../photos/HomeDisplay/StoveBefore.jpg";
+import AfterStove from "../../photos/HomeDisplay/StoveAfter.jpg";
+
+const images = [BeforeOven, AfterOven, BeforeKitchen, AfterKitchen, BeforeStove, AfterStove];
+
+
+
 const rootPath = enviroment.PublicRoot;
 
-const imageObjects = import.meta.glob('../../../src/photos/HomeDisplay/*.{jpg,png}');
 ---
 
 <section class="section">
@@ -334,22 +343,21 @@ const imageObjects = import.meta.glob('../../../src/photos/HomeDisplay/*.{jpg,pn
 
 </style>
 
-<script>
-    const fileDirectory = 'src/photos/HomeDisplay/';
+<script define:vars={{images : images}}>
 
     //before 0, after 1
     const beforeAfterPaths = new Map([
-        ["Group0", [fileDirectory + "BeforeOven.png", fileDirectory + "AfterOven.png"]],
-        ["Group1", [fileDirectory + "MessyKitchen.jpg", fileDirectory + "CleanKitchen.jpg"]],
-        ["Group2", [fileDirectory + "StoveBefore.jpg", fileDirectory + "StoveAfter.jpg"]]
+        ["Group0", [images[0].src, images[1].src]],
+        ["Group1", [images[2].src, images[3].src]],
+        ["Group2", [images[4].src, images[5].src]]
     ]);
 
-    const frontImage = document.getElementById("front-image") as HTMLImageElement;
-    const leftImage = document.getElementById("left-image") as HTMLImageElement;
-    const rightImage = document.getElementById("right-image") as HTMLImageElement;
-    const beforeAfterText = document.getElementById("before-after-text") as HTMLSpanElement;
+    const frontImage = document.getElementById("front-image");
+    const leftImage = document.getElementById("left-image");
+    const rightImage = document.getElementById("right-image");
+    const beforeAfterText = document.getElementById("before-after-text");
 
-    function RotateImages(startGroup: number, startImage = 0){
+    function RotateImages(startGroup, startImage = 0){
         const objectSize = beforeAfterPaths.size - 1;
         
         let leftCardGroupIndex = 0;
