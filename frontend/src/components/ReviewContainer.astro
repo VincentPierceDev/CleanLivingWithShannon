@@ -2,24 +2,18 @@
 import enviroment from "../data/Enviroment.json";
 import '../CSS/Global.css';
 
+import * as GWC from '../data/MarkDown/TestimonialsAndReviews/GlenWhitworthCom.md';
+import * as DBR from '../data/MarkDown/TestimonialsAndReviews/DebraBaxterRev.md';
+import * as RSLR from '../data/MarkDown/TestimonialsAndReviews/RaneStricklandLaRoeRev.md';
+import * as KWMC from '../data/MarkDown/TestimonialsAndReviews/KaronWeberMartinCom.md';
+import * as DPR from '../data/MarkDown/TestimonialsAndReviews/DeborahPatrickRev.md';
+import * as WSR from '../data/MarkDown/TestimonialsAndReviews/WhitneyScogginsRev.md';
+import * as DHP from '../data/MarkDown/TestimonialsAndReviews/DianeHindsPost.md';
+
+
 const rootPath = enviroment.PublicRoot;
 
-interface ReviewModule {
-    default: string;
-    frontmatter: {
-        source: string;
-        content: string;
-        author: string;
-    }
-}
-
-//const reviews = [GWC, DBWR, RSLR, KWMC, DPR, WSR, DHP];
-const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md');
-const loadedReviews = await Promise.all(
-    Object.values(reviews).map((fn) => fn())
-);
-
-const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
+const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 ---
 
 
@@ -40,7 +34,7 @@ const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
             <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
         </button>
         <div id="elipse-container">
-            {reviewsArray.map((_, index) => (
+            {reviews.map((_, index) => (
                 <div id={`elipse-${index}`} class="elipse"/>
             ))}
         </div>
@@ -363,7 +357,7 @@ const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
 
 </style>
 
-<script type="module" define:vars={{reviewsArray}}>
+<script define:vars={{reviews : reviews}}>
 
     let currentIndex = 0;
 
@@ -382,15 +376,15 @@ const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
     }
 
     const updateReview = () => {
-        const currentReview = reviewsArray[currentIndex];
+        const currentReview = reviews[currentIndex];
     
         //set the element display
-        testimonySource.textContent = currentReview.source + ":";
-        testimonyComment.textContent = currentReview.content;
-        testimonyAuthor.textContent = "- " + currentReview.author;
+        testimonySource.textContent = currentReview.frontmatter.source + ":";
+        testimonyComment.textContent = currentReview.frontmatter.content;
+        testimonyAuthor.textContent = "- " + currentReview.frontmatter.author;
 
         //update the elipses
-        for (let i = 0; i < reviewsArray.length; i++)
+        for (let i = 0; i < reviews.length; i++)
         {
             const elipse = document.getElementById("elipse-" + i);
             if(i === currentIndex) {
@@ -401,7 +395,7 @@ const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
         }
     };
 
-    function SetupNavigation() {
+    
         const leftButton = document.getElementById("left-navigation");
         const rightButton = document.getElementById("right-navigation");
 
@@ -414,12 +408,10 @@ const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
             currentIndex = (currentIndex - 1 + reviewsArray.length) % reviewsArray.length;
             updateReview();
         });
-    }
+    
 
      //initialize the first render
-    window.addEventListener("DOMContentLoaded", () => {
-        SetupNavigation();
-        updateReview();
-    })
+
+    updateReview();
 
 </script>
