@@ -10,10 +10,9 @@ import * as DPR from '../data/MarkDown/TestimonialsAndReviews/DeborahPatrickRev.
 import * as WSR from '../data/MarkDown/TestimonialsAndReviews/WhitneyScogginsRev.md';
 import * as DHP from '../data/MarkDown/TestimonialsAndReviews/DianeHindsPost.md';
 
+const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 
 const rootPath = enviroment.PublicRoot;
-
-const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 ---
 
 
@@ -294,7 +293,7 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         }
 
         .testimonial-box{
-            height: 30rem;
+            height: fit-content;
         }
 
         .elipse{
@@ -339,6 +338,10 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
         #testimonial-comment::after{
             margin-left: .2rem;
         }
+
+        #testimonial-author{
+            margin: auto;
+        }
     }
 
     @media(max-width: 380px)
@@ -378,12 +381,28 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 
 <script define:vars={{reviews : reviews}}>
 
-    let currentIndex = 2;
+    let currentIndex = 0;
     const fadeHalfTime = 300;
 
     const testimonySource = document.getElementById("testimonial-source");
     const testimonyComment = document.getElementById("testimonial-comment");
     const testimonyAuthor = document.getElementById("author-tag");
+
+
+    //Fisher-Yates
+    function randomizeReviews(reviews){
+
+        for(let i = reviews.length - 1; i >= 1; i--)
+        {
+            const randomIndex = Math.floor((Math.random() * (i + 1)));
+            const tempItem = reviews[i];
+            reviews[i] = reviews[randomIndex];
+            reviews[randomIndex] = tempItem;
+        }
+        return reviews;
+    }
+
+    const randReviews = randomizeReviews(reviews);
 
     function FadeContent(){
         testimonyAuthor.classList.remove("fade-in");
@@ -410,7 +429,7 @@ const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
     }
 
     const updateReview = async () => {
-        const currentReview = await reviews[currentIndex];
+        const currentReview = await randReviews[currentIndex];
     
         //set the element display
         testimonySource.textContent = currentReview.frontmatter.source + ":";
