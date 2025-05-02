@@ -14,8 +14,12 @@ interface ReviewModule {
 }
 
 //const reviews = [GWC, DBWR, RSLR, KWMC, DPR, WSR, DHP];
-const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md', {eager: true});
-const reviewsArray = Object.values(reviews);
+const reviews = import.meta.glob<ReviewModule>('../data/Markdown/TestimonialsAndReviews/*.md');
+const loadedReviews = await Promise.all(
+    Object.values(reviews).map((fn) => fn())
+);
+
+const reviewsArray = loadedReviews.map((mod) => mod.frontmatter);
 ---
 
 
@@ -359,7 +363,7 @@ const reviewsArray = Object.values(reviews);
 
 </style>
 
-<script define:vars={{reviewsArray : reviewsArray}}>
+<script type="module" define:vars={{reviewsArray, reviews}}>
 
     let currentIndex = 0;
 
@@ -377,14 +381,13 @@ const reviewsArray = Object.values(reviews);
         testimonyAuthor.classList.add(className);
     }
 
-    const updateReview = async () => {
+    const updateReview = () => {
         const currentReview = reviewsArray[currentIndex];
     
-
         //set the element display
-        testimonySource.textContent = currentReview.frontmatter.source + ":";
-        testimonyComment.textContent = currentReview.frontmatter.content;
-        testimonyAuthor.textContent = "- " + currentReview.frontmatter.author;
+        testimonySource.textContent = currentReview.source + ":";
+        testimonyComment.textContent = currentReview.content;
+        testimonyAuthor.textContent = "- " + currentReview.author;
 
         //update the elipses
         for (let i = 0; i < reviewsArray.length; i++)
@@ -398,19 +401,25 @@ const reviewsArray = Object.values(reviews);
         }
     };
 
-     const leftButton = document.getElementById("left-navigation");
-     const rightButton = document.getElementById("right-navigation");
+    function SetupNavigation() {
+        const leftButton = document.getElementById("left-navigation");
+        const rightButton = document.getElementById("right-navigation");
 
-     rightButton?.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % reviewsArray.length;
-        updateReview();
-     });
+        rightButton?.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % reviewsArray.length;
+            updateReview();
+        });
 
-     leftButton?.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + reviewsArray.length) % reviewsArray.length;
-        updateReview();
-     });
+        leftButton?.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + reviewsArray.length) % reviewsArray.length;
+            updateReview();
+        });
+    }
 
      //initialize the first render
-     updateReview();
+    window.addEventListener("DOMContentLoaded", () => {
+        SetupNavigation();
+        updateReview();
+    })
+
 </script>
