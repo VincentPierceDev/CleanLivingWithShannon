@@ -8,19 +8,22 @@ import Button from "../components/LinkButton.astro";
 import enviroment from '../data/Enviroment.json';
 import ReviewContainer from "../components/ReviewContainer.astro";
 import {Image} from 'astro:assets';
-
-const rootPath = enviroment.PublicRoot;
-
 import TopCardPhoto from '../photos/MopStock.jpg'; 
 import BottomCardPhoto from '../photos/CleaningStock.jpg';
 
+import '../CSS/Utility.css';
+
+
+const rootPath = enviroment.PublicRoot;
 ---
+
+<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
 
 <PageLayout title={HomeMeta.frontmatter.title} description={HomeMeta.frontmatter.description} linkMask={[true, false, false, false]}>
 	<Hero/>
 	<BodySection title="Bring cleanliness to your space today!" buttonText="Contact Me!" link="/Contact">
 		<Card title="The clean difference">
-			<div class="card-grid-content">
+			<div class="card-grid-content slide-up-page-effect">
 				<p class="grid-text">From the moment I enter the door, my goal is to leave your space <strong>clean and refreshing.</strong> With every visit I am commited to making the space look and feel it's very best. That's what sets Clean Living with Shannon apart; that's the clean difference.</p>
 				<div class="image-container card-image image-grid">
 					<Image class="page-image" src={TopCardPhoto} alt="image of mopping the floor" quality={"mid"} width={762} sizes="(max-width: 800px) 100vw, 762px" loading="lazy"/>
@@ -31,7 +34,7 @@ import BottomCardPhoto from '../photos/CleaningStock.jpg';
 			</div>
 		</Card>
 		<Card title="Where our cleaning meets care">
-			<div class="card-flex-content">
+			<div class="card-flex-content fade-in-page-effect">
 				<p class="flex-text">Proudly serving <strong>East Texas</strong>, I treat every home, office, and business like my own. With utmost care and attention to fine details, I take pride in finishing a job from start to finish. When you invite me in, you're not just consulting a cleaner, you are hiring someone who genuinely cares and respects your space.</p>
 				<div class="image-container card-image image-flex left-display">
 					<Image class="page-image" src={BottomCardPhoto} alt="image of wiping a surface" quality={"mid"} width={762} sizes="(max-width: 800px) 100vw, 762px" loading="lazy"/>
