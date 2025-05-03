@@ -1,7 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import react from '@astrojs/react';
+
 export default defineConfig({
-    site: 'https://vincentpiercedev.github.io/CleanLivingWithShannon',
-    base: '/CleanLivingWithShannon',
+  site: 'https://vincentpiercedev.github.io/CleanLivingWithShannon',
+  base: '/CleanLivingWithShannon',
+  integrations: [react()],
 });

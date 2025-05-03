@@ -1,6 +1,5 @@
 const fadeElements = document.querySelectorAll('.fade-in-page-effect');
 const slideElements = document.querySelectorAll('.slide-up-page-effect');
-console.log("script running");
 
 const fadeOptions = {
     threshold: .5

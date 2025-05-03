@@ -25,12 +25,12 @@
 
 .slide-up-page-effect{
     opacity: 0;
-    translate: 0 3rem;
+    transform: translateY(3rem);
     transition: all .5s ease-out;
 }
 
 .slide-up-page-effect.appear{
-    translate: 0 0;
+    transform: translateY(0);
     opacity: 1;
 }
 

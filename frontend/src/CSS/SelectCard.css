@@ -1,0 +1,127 @@
+@import url('../CSS/Global.css');
+
+.card-border{
+    background: var(--color-primary);
+    border-radius: 1.875rem;
+    box-shadow: -.3rem .3rem 5px rgba(0, 0, 0, .25);
+    transition: all .2s ease;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent; 
+    will-change: transform, box-shadow;
+}
+
+.border-opened{
+    padding-bottom: 3rem;
+}
+
+.mouse-effect{
+    box-shadow: -.8rem .8rem 15px rgba(0, 0, 0, .10),
+                inset 0px 0px 5px 5px #d44949;
+    border-color: #b95c5c;
+    scale: 101.5%;
+    transition: all .2s ease;
+}
+
+.card-heading{
+    display: flex;
+    align-items: center;
+    user-select: none;
+    border-radius: 1.875rem;
+}
+
+.card-heading-open{
+    background-color: #ac3939;
+}
+
+.card-heading-open:hover{
+    transform: scale(100.5%);
+}
+
+.card-content{
+    margin-left: 4rem;
+    margin-right: 4rem;
+    margin-top: 4rem;
+}
+
+.select-card-title{
+    color: var(--highlight-secondary);
+    letter-spacing: var(--lt-spc-1);
+    font-size: var(--fnt-sz-48);
+    font-family: var(--font-primary);
+    margin-left: 10rem;
+    transition: font-size .2s ease;
+    user-select: none;
+}
+
+.select-card-title-open{
+    color: var(--highlight-primary);
+    transition: color .3s ease;
+}
+
+.select-card-icon{
+    color: var(--highlight-primary);
+    font-size: 10rem;
+    font-family: var(--font-primary);
+    margin-left: 1rem;
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    transform: rotate(0deg);
+    transition: all .2s ease;
+}
+
+.rotate-icon{
+    transform: rotate(45deg);
+    color: rgba(0, 0, 0, .5);
+   
+}
+
+.select-card-button{
+    width: 100%;
+    border: none;
+    background: none;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.select-card-button:hover{
+    cursor: pointer;
+}
+
+.select-card-button:hover .select-card-title{
+    transform: scale(100.5%);
+    transition: transform .2s ease;
+}
+
+@media (max-width: 1600px){
+
+}
+
+@media (max-width: 850px){
+    .select-card-title{
+        font-size: var(--fnt-sz-28);
+        margin-left: 7.5rem;
+    }
+
+    .select-card-icon{
+        font-size: 8rem;
+    }
+
+    .card-content{
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 380px){
+    .select-card-title{
+        font-size: var(--fnt-sz-16);
+        margin-left: 4.5rem;
+    }
+
+    .select-card-icon{
+        font-size: 6rem;
+    }
+}

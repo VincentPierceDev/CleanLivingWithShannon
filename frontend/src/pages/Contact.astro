@@ -7,15 +7,10 @@ import Card from "../components/Card.astro";
 import "../CSS/Global.css";
 import enviroment from "../data/Enviroment.json";
 
-const contactInfo = [
-	{ title: "Email:", info: "shannonandroger@yahoo.com" },
-	{ title: "Phone:", info: "(903) 952-8625" },
-	{ title: "Facebook:", info: "Clean Living with Shannon" },
-];
 
 const dontationInfo = [
 	{ title: "Cashapp:", info: "$ShannonNRoger" },
-	{ title: "Venmo:", info: "ShannonNRoger-Mallet" },
+	{ title: "Venmo:", info: "" },
 ];
 
 const rootPath = enviroment.PublicRoot;
@@ -23,45 +18,41 @@ const rootPath = enviroment.PublicRoot;
 
 <script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
 
-<PageLayout
-	title={ContactMeta.frontmatter.title}
-	description={ContactMeta.frontmatter.description}
-	linkMask={[false, false, false, true]}
->
+<PageLayout title={ContactMeta.frontmatter.title} description={ContactMeta.frontmatter.description} linkMask={[false, false, false, true]}>
 	<Hero heading="Contact Me" description="get in touch for cleaning service" />
 	<BodySection class="body-section" CallToAction={false}>
 		<Card title="My contact info">
 			<div class="info-wrapper fade-in-page-effect">
-				{
-					contactInfo.map((line) => (
-						<div class="info-line">
-							<span>{line.title}</span>
-							<span class="details">{line.info}</span>
-							<br />
-						</div>
-					))
-				}
+				<div class="info-line">
+					<span>Email:</span>
+					<span class="details">shannonandroger<br class="lb">@yahoo.com</span>
+				</div>
+				<div class="info-line">
+					<span>Phone:</span>
+					<span class="details">(903) 952-8625</span>
+				</div>
+				<div class="info-line">
+					<span>Facebook:</span>
+					<span class="details"><strong>Clean Living with<br class="lb"> Shannon</strong></span>
+				</div>
 			</div>
 			<div class="inquiry-container">
-				<span class="inquiry-note">Serious inquiries only.</span>
+				<span class="inquiry-note">Serious inquiries<br class="lb"> only.</span>
 			</div>
 		</Card>
 		<Card class="donation-card" title="donations">
 			<div class="info-wrapper fade-in-page-effect">
-				{
-					dontationInfo.map((line) => (
-						<div class="info-line">
-							<span>{line.title}</span>
-							<span class="details">{line.info}</span>
-							<br />
-						</div>
-					))
-				}
+				<div class="info-line">	
+					<span>Cashapp:</span>
+					<span class="details">$ShannonNRoger</span>
+				</div>
+				<div class="info-line">
+					<span>Venmo:</span>
+					<span class="details">ShannonNRoger-Mallet</span>
+				</div>
 			</div>
 			<div class="inquiry-container">
-				<span class="inquiry-note"
-					>Donations not required, but are greatly appreciated!</span
-				>
+				<span class="inquiry-note">Donations not required,<br class="lb"> but are greatly<br class="lb"> appreciated!</span>
 			</div>
 		</Card>
 	</BodySection>
@@ -71,8 +62,9 @@ const rootPath = enviroment.PublicRoot;
 	.info-line {
 		display: flex;
 		justify-content: flex-start;
+		margin-top: 3.75rem;
 	}
-
+	
 	.inquiry-container {
 		text-align: center;
 		margin-top: 3rem;
@@ -87,13 +79,16 @@ const rootPath = enviroment.PublicRoot;
 		text-decoration: underline;
 	}
 
+	.lb{
+		display: none;
+	}
+
 	span {
 		font-family: var(--font-primary);
 		font-weight: bold;
 		font-size: var(--fnt-sz-64);
 		letter-spacing: var(--lt-spc-3);
 		color: var(--highlight-secondary);
-		margin-top: 3.75rem;
 		margin-right: 5rem;
 	}
 
@@ -117,6 +112,11 @@ const rootPath = enviroment.PublicRoot;
 		.info-line {
 			flex-direction: column;
 			align-content: center;
+			text-align: center;
+		}
+
+		.lb{
+			display: block;
 		}
 
 		.inquiry-note {
@@ -129,6 +129,7 @@ const rootPath = enviroment.PublicRoot;
 
 		span {
 			font-size: var(--fnt-sz-28);
+			margin-right: 0;
 		}
 	}
 
