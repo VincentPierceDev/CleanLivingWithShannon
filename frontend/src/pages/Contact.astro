@@ -4,73 +4,141 @@ import Hero from "../components/sections/PageHero.astro";
 import BodySection from "../components/sections/BodySection.astro";
 import * as ContactMeta from "../data/MarkDown/Contact.md";
 import Card from "../components/Card.astro";
-import '../CSS/Global.css';
+import "../CSS/Global.css";
+import enviroment from "../data/Enviroment.json";
 
 const contactInfo = [
-	{title: "Email:", info: "shannonandroger@yahoo.com"},
-	{title: "Phone:", info: "(903) 952-8625"},
-	{title: "Facebook:", info: "Clean Living with Shannon"}
+	{ title: "Email:", info: "shannonandroger@yahoo.com" },
+	{ title: "Phone:", info: "(903) 952-8625" },
+	{ title: "Facebook:", info: "Clean Living with Shannon" },
 ];
 
 const dontationInfo = [
-	{title: "Cashapp:", info: "$ShannonNRoger"},
-	{title: "Venmo:", info: "ShannonNRoger-Mallet"}
+	{ title: "Cashapp:", info: "$ShannonNRoger" },
+	{ title: "Venmo:", info: "ShannonNRoger-Mallet" },
 ];
+
+const rootPath = enviroment.PublicRoot;
 ---
 
-<PageLayout title={ContactMeta.frontmatter.title} description={ContactMeta.frontmatter.description}linkMask={[false, false, false, true]}>
-	<Hero heading="Contact Me" description="get in touch for cleaning service"/>
-	<BodySection CallToAction={false}>
+<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
+
+<PageLayout
+	title={ContactMeta.frontmatter.title}
+	description={ContactMeta.frontmatter.description}
+	linkMask={[false, false, false, true]}
+>
+	<Hero heading="Contact Me" description="get in touch for cleaning service" />
+	<BodySection class="body-section" CallToAction={false}>
 		<Card title="My contact info">
-			<div class="info-wrapper">
-				{contactInfo.map(line => ( 
-					<div class="info-line">
-						<span>{line.title}</span>
-						<span>{line.info}</span>
-						<br/>
-					</div>
-				))}
+			<div class="info-wrapper fade-in-page-effect">
+				{
+					contactInfo.map((line) => (
+						<div class="info-line">
+							<span>{line.title}</span>
+							<span class="details">{line.info}</span>
+							<br />
+						</div>
+					))
+				}
 			</div>
 			<div class="inquiry-container">
 				<span class="inquiry-note">Serious inquiries only.</span>
 			</div>
 		</Card>
-		<Card title="donations">
-			<div>
-				{dontationInfo.map(line => ( 
-					<span>{line.title}</span>
-					<span>{line.info}</span>
-					<br/>
-				))}
+		<Card class="donation-card" title="donations">
+			<div class="info-wrapper fade-in-page-effect">
+				{
+					dontationInfo.map((line) => (
+						<div class="info-line">
+							<span>{line.title}</span>
+							<span class="details">{line.info}</span>
+							<br />
+						</div>
+					))
+				}
+			</div>
+			<div class="inquiry-container">
+				<span class="inquiry-note"
+					>Donations not required, but are greatly appreciated!</span
+				>
 			</div>
 		</Card>
 	</BodySection>
 </PageLayout>
 
-
 <style>
-	.info-wrapper{
-		border: 2px solid blue;
-	}
-
-	.info-line{
+	.info-line {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 
-	.inquiry-container{
+	.inquiry-container {
 		text-align: center;
+		margin-top: 3rem;
 	}
 
-	.inquiry-note{
+	.inquiry-note {
 		color: var(--highlight-primary);
-		font-size: var(--fnt-sz-76);
+		font-size: var(--fnt-sz-48);
 		font-family: var(--font-secondary);
 		letter-spacing: var(--lt-spc-3);
 		text-align: center;
+		text-decoration: underline;
 	}
 
-	span{
+	span {
+		font-family: var(--font-primary);
+		font-weight: bold;
+		font-size: var(--fnt-sz-64);
+		letter-spacing: var(--lt-spc-3);
 		color: var(--highlight-secondary);
+		margin-top: 3.75rem;
+		margin-right: 5rem;
+	}
+
+	.details {
+		font-family: var(--font-secondary);
+		line-break: anywhere;
+		font-weight: 400;
+	}
+
+	@media (max-width: 1600px) {
+		span {
+			font-size: var(--fnt-sz-32);
+		}
+
+		.inquiry-note {
+			font-size: var(--fnt-sz-28);
+		}
+	}
+
+	@media (max-width: 850px) {
+		.info-line {
+			flex-direction: column;
+			align-content: center;
+		}
+
+		.inquiry-note {
+			font-size: var(--fnt-sz-24);
+		}
+
+		.details {
+			line-break: normal;
+		}
+
+		span {
+			font-size: var(--fnt-sz-28);
+		}
+	}
+
+	@media (max-width: 380px) {
+		span {
+			font-size: var(--fnt-sz-20);
+		}
+
+		.inquiry-note {
+			font-size: var(--fnt-sz-16);
+		}
 	}
 </style>

@@ -5,17 +5,22 @@ import BodySection from "../components/sections/BodySection.astro";
 import * as AboutMeta from "../data/MarkDown/About.md";
 import Card from "../components/Card.astro";
 import { Image } from "astro:assets";
+import enviroment from '../data/Enviroment.json';
 
 import "../CSS/Global.css";
 
 import ProfilePicture from "../photos/ShannonPhoto.jpg";
+
+const rootPath = enviroment.PublicRoot;
 ---
+
+<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
 
 <PageLayout title={AboutMeta.frontmatter.title} description={AboutMeta.frontmatter.description} linkMask={[false, true, false, false]}>
 	<Hero heading="About Me" description="the clean living with shannon story"/>
 	<BodySection title="Stay in the loop!" buttonType={false} buttonText="Contact Me!" link="/Contact">
 		<Card title="Meet shannon">
-			<div class="about-container">
+			<div class="about-container slide-up-page-effect">
 				<div class="image-container profile-pic square-image">
 					<Image class="page-image profile-pic" src={ProfilePicture} alt="profile picture" quality={"max"} width={800} loading="lazy"/>
 				</div>

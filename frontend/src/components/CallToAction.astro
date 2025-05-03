@@ -13,7 +13,9 @@ const rootPath = Enviroment.PublicRoot;
     
 ---
 
-<div class="cta-container">
+<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
+
+<div class="cta-container slide-up-page-effect">
     <h3>{title}</h3>
     {buttonType === true ? <Button href={`${rootPath}${link}`} text={buttonText} textSize="var(--fnt-sz-48)" paddingT="1.75rem" paddingB="1.75rem" paddingL="10rem" paddingR="10rem" br="1rem"/> : <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"><img class="facebook-logo logo-gap" src={`${rootPath}/Facebook_Logo_Primary.png`} alt="Facebook logo" width="150" height="150"/></a>
     }

@@ -29,9 +29,11 @@ const rootPath = enviroment.PublicRoot;
 						<img class="hamburger-menu" src={`${rootPath}/HamburgerIcon.png`} alt="Nav Menu" width="75" height="75"/>
 					</label>
 					<ul class="links-container">
-						<label for="nav-menu-active" class="close-nav-menu-btn">
-							<img src={`${rootPath}/CloseIcon.png`} alt="Exit Button" width="50" height="50"/>
-						</label>
+						<li>
+							<label for="nav-menu-active" class="close-nav-menu-btn">
+								<img src={`${rootPath}/CloseIcon.png`} alt="Exit Button" width="50" height="50"/>
+							</label>
+						</li>
 						<li class="link">
 							<a id="home" href={`${rootPath}/`}>Home</a>
 						</li>
@@ -257,7 +259,7 @@ const rootPath = enviroment.PublicRoot;
 	const buttonColor = !mobile.matches
 		? `var(--dark--accent)`
 		: `var(--highlight-secondary)`;
-	const buttonAccent = `var(--light-accent)`;
+	const buttonAccent = !mobile.matches ? `var(--light-accent)` : `var(--color-primary)`;
 
 	document.documentElement.style.setProperty(
 		"--home-color",
