@@ -5,8 +5,8 @@ import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  site: 'https://vincentpiercedev.github.io/CleanLivingWithShannon',
-  base: '',
+  site: 'https://snazzy-sunshine-ba5faf.netlify.app',
+  base: '/',
   output: 'static',
   compressHTML: true,
   integrations: [react()],
