@@ -26,7 +26,7 @@ const rootPath = import.meta.env.BASE_URL;
 
 <PageLayout title={ServicesMeta.frontmatter.title} description={ServicesMeta.frontmatter.description} linkMask={[false, false, true, false]}>
 	<Hero heading="Services" description="what I offer for the community"/>
-	<BodySection title="Have any questions?" buttonText="Contact Me!" link="/Contact">
+	<BodySection title="Have any questions?" buttonText="Contact Me!" link="Contact">
 		<section class="section">
 			<div class="container card-container">
 				<div class="slide-up-page-effect">
@@ -44,7 +44,7 @@ const rootPath = import.meta.env.BASE_URL;
 							</div>
 						</div>
 						<div class="notice-container">
-							<span class="notice-text">Prices are quoted upon <a class="notice-text" href={`${rootPath}/Contact`}>inquiry</a>!</span>
+							<span class="notice-text">Prices are quoted upon <a class="notice-text" href={`${rootPath}Contact`}>inquiry</a>!</span>
 						</div>
 					</SelectCard>
 				</div>

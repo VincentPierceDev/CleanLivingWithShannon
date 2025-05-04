@@ -6,20 +6,24 @@ import * as ContactMeta from "../data/MarkDown/Contact.md";
 import Card from "../components/Card.astro";
 import "../CSS/Global.css";
 
-
 const rootPath = import.meta.env.BASE_URL;
 ---
 
-<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
+<script type="module" src={`${rootPath}Scripts/Global.js`}></script>
 
-<PageLayout title={ContactMeta.frontmatter.title} description={ContactMeta.frontmatter.description} linkMask={[false, false, false, true]}>
+<PageLayout
+	title={ContactMeta.frontmatter.title}
+	description={ContactMeta.frontmatter.description}
+	linkMask={[false, false, false, true]}
+>
 	<Hero heading="Contact Me" description="get in touch for cleaning service" />
 	<BodySection class="body-section" CallToAction={false}>
 		<Card title="My contact info">
 			<div class="info-wrapper fade-in-page-effect">
 				<div class="info-line">
 					<span>Email:</span>
-					<span class="details">shannonandroger<br class="lb">@yahoo.com</span>
+					<span class="details">shannonandroger<br class="lb" />@yahoo.com</span
+					>
 				</div>
 				<div class="info-line">
 					<span>Phone:</span>
@@ -27,16 +31,20 @@ const rootPath = import.meta.env.BASE_URL;
 				</div>
 				<div class="info-line">
 					<span>Facebook:</span>
-					<span class="details"><strong>Clean Living with<br class="lb"> Shannon</strong></span>
+					<span class="details"
+						><strong>Clean Living with<br class="lb" /> Shannon</strong></span
+					>
 				</div>
 			</div>
 			<div class="inquiry-container">
-				<span class="inquiry-note">Serious inquiries<br class="lb"> only.</span>
+				<span class="inquiry-note"
+					>Serious inquiries<br class="lb" /> only.</span
+				>
 			</div>
 		</Card>
 		<Card class="donation-card" title="donations">
 			<div class="info-wrapper fade-in-page-effect">
-				<div class="info-line">	
+				<div class="info-line">
 					<span>Cashapp:</span>
 					<span class="details">$ShannonNRoger</span>
 				</div>
@@ -46,7 +54,11 @@ const rootPath = import.meta.env.BASE_URL;
 				</div>
 			</div>
 			<div class="inquiry-container">
-				<span class="inquiry-note">Donations not required,<br class="lb"> but are greatly<br class="lb"> appreciated!</span>
+				<span class="inquiry-note"
+					>Donations not required,<br class="lb" /> but are greatly<br
+						class="lb"
+					/> appreciated!</span
+				>
 			</div>
 		</Card>
 	</BodySection>
@@ -58,7 +70,7 @@ const rootPath = import.meta.env.BASE_URL;
 		justify-content: flex-start;
 		margin-top: 3.75rem;
 	}
-	
+
 	.inquiry-container {
 		text-align: center;
 		margin-top: 3rem;
@@ -73,7 +85,7 @@ const rootPath = import.meta.env.BASE_URL;
 		text-decoration: underline;
 	}
 
-	.lb{
+	.lb {
 		display: none;
 	}
 
@@ -109,7 +121,7 @@ const rootPath = import.meta.env.BASE_URL;
 			text-align: center;
 		}
 
-		.lb{
+		.lb {
 			display: block;
 		}
 

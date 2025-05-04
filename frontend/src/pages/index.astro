@@ -16,11 +16,11 @@ import '../CSS/Utility.css';
 const rootPath = import.meta.env.BASE_URL;
 ---
 
-<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
+<script type="module" src={`${rootPath}Scripts/Global.js`}></script>
 
 <PageLayout title={HomeMeta.frontmatter.title} description={HomeMeta.frontmatter.description} linkMask={[true, false, false, false]}>
 	<Hero/>
-	<BodySection title="Bring cleanliness to your space today!" buttonText="Contact Me!" link="/Contact">
+	<BodySection title="Bring cleanliness to your space today!" buttonText="Contact Me!" link="Contact">
 		<Card title="The clean difference">
 			<div class="card-grid-content slide-up-page-effect">
 				<p class="grid-text">From the moment I enter the door, my goal is to leave your space <strong>clean and refreshing.</strong> With every visit I am commited to making the space look and feel its very best. That's what sets Clean Living with Shannon apart; that's the clean difference.</p>
@@ -28,7 +28,7 @@ const rootPath = import.meta.env.BASE_URL;
 					<Image class="page-image" src={TopCardPhoto} alt="image of mopping the floor" quality={"mid"} width={762} sizes="(max-width: 800px) 100vw, 762px" loading="lazy"/>
 				</div>
 				<div class="button-container">
-                    <Button class="button" href={`${rootPath}/Services`} text="Checkout My Services" textSize="var(--fnt-sz-32)" paddingT="2.5rem" paddingB="2.5rem" paddingL="5rem" paddingR="5rem" br="1.25rem" cardButton={true}/>
+                    <Button class="button" href={`${rootPath}Services`} text="Checkout My Services" textSize="var(--fnt-sz-32)" paddingT="2.5rem" paddingB="2.5rem" paddingL="5rem" paddingR="5rem" br="1.25rem" cardButton={true}/>
             	</div>
 			</div>
 		</Card>
