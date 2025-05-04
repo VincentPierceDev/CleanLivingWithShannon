@@ -5,7 +5,9 @@ import '../../CSS/Background.css';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 
-import PageLogo from '../../photos/DesktopLogoS1.png'
+import PageLogo from '../../photos/DesktopLogoS1.png';
+import PhoneIcon from '../../../public/PhoneIcon.png';
+import MainIcon from '../../../public/MailIcon.png';
 
 const currentYear = new Date().getFullYear();
 const rootPath = enviroment.PublicRoot;
@@ -16,9 +18,19 @@ const rootPath = enviroment.PublicRoot;
         <div class="footer-content">
             <div class="brand-content">
                 <Image class="logo-image" src={PageLogo} alt="page logo" width="250" height="100" quality={"mid"} sizes="(max-width: 800px) 100vw, 250px"/>
-                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr">
+                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr" target="_blank">
                     <Image class="facebook-logo" src={`${rootPath}/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"/>
                 </a>
+            </div>
+            <div class="contact-info">
+                <div class="contact-row">
+                    <img src={`${rootPath}/PhoneIcon.png`} width="30" height="30"/>
+                    <span>(903)-952-8625</span>
+                </div>
+                <div class="contact-row">
+                    <img src={`${rootPath}/MailIcon.png`} width="30" height="30"/>
+                    <span>shannonandroger@yahoo.com</span>
+                </div>
             </div>
             <div class="footer-info">
                         <p>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>
@@ -47,7 +59,7 @@ const rootPath = enviroment.PublicRoot;
         height: fit-content;
         width: 100%;
         display: flex;
-        gap: 20vw;
+        gap: 15vw;
         margin-top: 3rem;
         margin-bottom: 3rem;
     }
@@ -76,6 +88,20 @@ const rootPath = enviroment.PublicRoot;
         align-items: center;
     }
 
+    .contact-info{
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        gap: 1rem;
+        margin-top: .8rem;
+    }
+
+    .contact-row{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
     a{
         color: var(--highlight-secondary);
         font-family: var(--font-secondary);
@@ -85,7 +111,7 @@ const rootPath = enviroment.PublicRoot;
         text-decoration: underline;
     }
 
-    p{
+    p, span{
         color: var(--highlight-secondary);
         font-family: var(--font-secondary);
         font-size: var(--fnt-sz-16);

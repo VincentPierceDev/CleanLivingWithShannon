@@ -5,6 +5,7 @@ import BodySection from "../components/sections/BodySection.astro";
 import * as ServicesMeta from '../data/MarkDown/Services.md';
 import SelectCard from "../components/SelectCard.jsx";
 import type { MarkdownInstance } from "astro";
+import enviroment from "../data/Enviroment.json";
 
 interface Frontmatter {
 	title: string;
@@ -20,6 +21,8 @@ const cardDetails = await Promise.all(
 		}
 	})
 );
+
+const rootPath = enviroment.PublicRoot;
 ---
 
 <PageLayout title={ServicesMeta.frontmatter.title} description={ServicesMeta.frontmatter.description} linkMask={[false, false, true, false]}>
@@ -28,7 +31,23 @@ const cardDetails = await Promise.all(
 		<section class="section">
 			<div class="container card-container">
 				<div class="slide-up-page-effect">
-					<SelectCard title="BUSINESS INFORMATION" client:load/>
+					<SelectCard title="BUSINESS INFORMATION" client:load>
+						<div class="schedule-container">
+							<div class="description-container">
+								<span class="schedule-category">Days:</span>
+								<span class="schedule-text">Monday - Wednesday</span>
+								<span class="schedule-text">Thursday & Friday</span>
+							</div>
+							<div class="description-container time-container">
+								<span class="schedule-category">Times:</span>
+								<span class="schedule-text">8:00AM - 4:30PM</span>
+								<span class="schedule-text">Consultations Only</span>
+							</div>
+						</div>
+						<div class="notice-container">
+							<span class="notice-text">Prices are quoted upon <a class="notice-text" href={`${rootPath}/Contact`}>inquiry</a>!</span>
+						</div>
+					</SelectCard>
 				</div>
 				{
 					cardDetails.map((card) => (
@@ -63,9 +82,49 @@ const cardDetails = await Promise.all(
 		line-height: 3rem;
 	}
 
-	@media (max-width: 1600px)
-	{
+	.schedule-container{
+		display: flex;
+		justify-content: center;
+	}
 
+	.description-container{
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.schedule-category{
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-64);
+		color: var(--highlight-secondary);
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	.schedule-text{
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-32);
+		color: var(--highlight-secondary);
+		text-align: center;
+	}
+
+	.notice-container{
+		display: flex;
+		justify-content: center;
+	}
+
+	.notice-text{
+		font-family: var(--font-secondary);
+		font-size: var(--fnt-sz-32);
+		color: var(--highlight-secondary);
+		margin-top: 3rem;
+	}
+
+	a{
+		text-decoration: 3px underline var(--accent-primary);
 	}
 
 	@media (max-width: 850px)
@@ -73,6 +132,28 @@ const cardDetails = await Promise.all(
 		.card-text{
 			font-size: var(--fnt-sz-20);
 			line-height: 1.875rem;
+		}
+
+		.schedule-container{
+			flex-direction: column;
+			gap: .1rem;
+		}
+
+		.schedule-category{
+			margin-bottom: 0rem;
+			font-size: var(--fnt-sz-28);
+		}
+
+		.time-container{
+			margin-top: 1rem;
+		}
+
+		.schedule-text{
+			font-size: var(--fnt-sz-24);
+		}
+
+		.notice-text{
+			font-size: var(--fnt-sz-20);
 		}
 	}
 

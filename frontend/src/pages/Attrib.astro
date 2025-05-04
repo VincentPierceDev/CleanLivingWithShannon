@@ -1,8 +1,48 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/PageHero.astro";
+import BodySection from "../components/sections/BodySection.astro";
+import Card from "../components/Card.astro";
+import enviroment from '../data/Enviroment.json';
+
+import '../CSS/Global.css';
+
+const currentYear = new Date().getFullYear();
+const rootPath = enviroment.PublicRoot;
 ---
 
+<script type="module" src={`${rootPath}/Scripts/Global.js`}></script>
+
 <PageLayout title="Attributions">
-	<Hero heading="Attributions" description="Giving credit where deserved"/>
+	<Hero heading="Attribs" description="Giving credit where deserved"/>
+	<BodySection CallToAction={false}>
+		<Card title="">
+			<div class="attribution-text fade-in-page-effect">
+				<p>This web page's design is inspired by <a href="https://www.figma.com/community/file/1464914745350147335/house-keeping-consultant-website-home-page-ui-design-template" target="_blank">House Keeping | Consultant | Website Home Page UI Design Template</a> by <a href="https://www.figma.com/@yousufraza" target="_blank">Yousuf Raza</a>, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>, substantial and disassociating modifications have been made as an "adaptation" under the terms of the license.</p>
+				<span>Icons and imported fonts are sourced from <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and fall under the fair use policy. No modifications have been predicated.<br></span>
+				<span>As of date of delivery, all branding elements - including logos, themes, and images - comply with their respective 2025 guidelines. These brands include <a href="https://business.facebook.com/" target="_blank">Meta</a>.</span>
+				<p class="my-license">&copy; {currentYear} Vincent Pierce. Licensed to Clean Living with Shannon for unlimited use, modification, and distribution. This license is granted exclusively to Clean Living with Shannon. They may extend or sub-license the rights granted to them at their discretion. This license does not grant or provide ownership, copyright, or any permissions regarding cited third-party content or licensing mentioned above. Vincent Pierce assumes zero liability for any modifications made by Clean Living with Shannon, or their extended license holders. This includes any copyright materials, such as but certainly not limited to - branding, logos, and images -  provided by Clean Living with Shannon during development. As of the website's launch, this project complies with all guidelines, and it's development has been documented.</p>
+			</div>
+		</Card>
+	</BodySection>
 </PageLayout>
+
+<style>
+
+	.attribution-text{
+		display: flex;
+		flex-direction: column;
+		gap: 5rem;
+	}
+
+	a{
+		text-decoration: underline;
+	}
+
+	p, span, a{
+		color: white;
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-32);
+		margin-bottom: 3rem;
+	}
+</style>

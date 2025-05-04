@@ -5,19 +5,20 @@ import '../../CSS/Global.css';
 import '../../CSS/Section.css';
 import '../../CSS/Background.css';
 
-const {title="title", CallToAction = true, buttonType=true, buttonText="buttonText", link} = Astro.props as {
+const {title="title", CallToAction = true, buttonType=true, buttonText="buttonText", link, animateCTA=true} = Astro.props as {
     title: string;
     CallToAction: boolean;
     buttonType: boolean;
     buttonText: string;
     link: string;
+    animateCTA: boolean;
 };
 ---
 
 <div class="body background-secondary">
     <slot/>
     <div class="container">
-        {CallToAction ? <CTA title={title} buttonType={buttonType} buttonText={buttonText} link={link}/> : <div class="spacer"></div>}
+        {CallToAction ? <CTA title={title} buttonType={buttonType} buttonText={buttonText} link={link} animates={animateCTA}/> : <div class="spacer"></div>}
     </div>
 </div>
 

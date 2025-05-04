@@ -141,6 +141,9 @@ const rootPath = enviroment.PublicRoot;
         z-index: 2;
         rotate: -11deg;
         translate: 12.5rem 0rem;
+        animation: shuffle-left-card;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
     }
 
     .center-image{
@@ -152,6 +155,9 @@ const rootPath = enviroment.PublicRoot;
         z-index: 1;
         rotate: 12deg;
         translate: -14rem 1rem;
+        animation: shuffle-right-card;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
     }
 
     .rotated-image-wrapper{
@@ -209,11 +215,17 @@ const rootPath = enviroment.PublicRoot;
         .left-image{
             rotate: -12deg;
             translate: 8rem 0rem;
+            animation: shuffle-left-card-laptop;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
 
         .right-image{
             rotate: 8deg;
             translate: -9rem .5rem;
+            animation: shuffle-right-card-laptop;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
 
         h1{
@@ -290,11 +302,17 @@ const rootPath = enviroment.PublicRoot;
         .left-image{
             rotate: -10deg;
             translate: 9rem 0rem;
+            animation: shuffle-left-card-mobile;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
 
         .right-image{
             rotate: 9deg;
             translate: -10rem .5rem;
+            animation: shuffle-right-card-mobile;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
 
         h1{
@@ -328,11 +346,17 @@ const rootPath = enviroment.PublicRoot;
         .left-image{
             rotate: -10deg;
             translate: 6rem 0rem;
+            animation: shuffle-left-card-small-mobile;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
 
         .right-image{
             rotate: 9deg;
             translate: -7rem .5rem;
+            animation: shuffle-right-card-small-mobile;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
         }
     }
 
@@ -340,6 +364,54 @@ const rootPath = enviroment.PublicRoot;
         0% {color: rgba(255, 255, 255, 0);}
         80% {color: rgba(255, 255, 255, 1);}
         100% {color: rgba(255, 255, 255, 0);}
+    }
+
+    @keyframes shuffle-left-card{
+        0% {rotate: -11deg; translate: 12.5rem 0rem;}
+        98% {rotate: -11deg; translate: 12.5rem 0rem;}
+        100% {rotate: 0deg; translate: 17.5rem 0rem;}
+    }
+
+    @keyframes shuffle-right-card{
+        0% {rotate: 12deg; translate: -14rem 1rem;}
+        98% {rotate: 12deg; translate: -14rem 1rem;}
+        100% {rotate: 0deg; translate: -17.5rem 0rem;}
+    }
+
+    @keyframes shuffle-left-card-laptop{
+        0% {rotate: -12deg; translate: 8rem 0rem;}
+        98% {rotate: -12deg; translate: 8rem 0rem;}
+        100% {rotate: 0deg; translate: 12rem 0rem;}
+    }
+
+    @keyframes shuffle-right-card-laptop{
+        0% {rotate: 8deg; translate: -9rem .5rem;}
+        98% {rotate: 8deg; translate: -9rem .5rem;}
+        100% {rotate: 0deg; translate: -11rem 0rem;}
+    }
+
+    @keyframes shuffle-left-card-mobile{
+        0% {rotate: -10deg; translate: 9rem 0rem;}
+        98% {rotate: -10deg; translate: 9rem 0rem;}
+        100% {rotate: 0deg; translate: 13rem 0rem;}
+    }
+
+    @keyframes shuffle-right-card-mobile{
+        0% {rotate: 9deg; translate: -10rem .5rem;}
+        98% {rotate: 9deg; translate: -10rem .5rem;}
+        100% {rotate: 0deg; translate: -12rem 0rem;}
+    }
+
+    @keyframes shuffle-left-card-small-mobile{
+        0% {rotate: -10deg; translate: 6rem 0rem;}
+        98% {rotate: -10deg; translate: 6rem 0rem;}
+        100% {rotate: 0deg; translate: 9rem 0rem;}
+    }
+
+    @keyframes shuffle-right-card-small-mobile{
+        0% {rotate: 9deg; translate: -7rem .5rem;}
+        98% {rotate: 9deg; translate: -7rem .5rem;}
+        100% {rotate: 0deg; translate: -9rem 0rem;}
     }
 
 </style>
