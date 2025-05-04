@@ -15,16 +15,53 @@ const rootPath = import.meta.env.BASE_URL;
 
 <script type="module" src={`${rootPath}Scripts/Global.js`}></script>
 
-<PageLayout title={AboutMeta.frontmatter.title} description={AboutMeta.frontmatter.description} linkMask={[false, true, false, false]}>
-	<Hero heading="About Me" description="the clean living with shannon story"/>
-	<BodySection title="Stay in the loop!" buttonType={false} buttonText="Contact Me!" link="Contact">
+<PageLayout
+	title={AboutMeta.frontmatter.title}
+	description={AboutMeta.frontmatter.description}
+	linkMask={[false, true, false, false]}
+>
+	<Hero heading="About Me" description="the clean living with shannon story" />
+	<BodySection
+		title="Stay in the loop!"
+		buttonType={false}
+		buttonText="Contact Me!"
+	>
 		<Card title="Meet shannon">
 			<div class="about-container slide-up-page-effect">
 				<div class="image-container profile-pic square-image">
-					<Image class="page-image profile-pic" src={ProfilePicture} alt="profile picture" quality={"max"} width={800} loading="lazy"/>
+					<Image
+						class="page-image profile-pic"
+						src={ProfilePicture}
+						alt="profile picture"
+						quality={"max"}
+						width={800}
+						loading="lazy"
+					/>
 				</div>
-				<p>Hi! I am Shannon, the beating heart behind Clean Living with Shannon. I started this business with the goal of <strong>promoting cleanliness</strong> among fellow <strong>East Texans.</strong> I want to help make people feel more comfortable in their personal spaces. With plenty of hands-on experience, I strongly believe that cleaning is more than just sweeping and dusting. It's about creating a less stress inducing, refreshing environment. I take pride in delivering the detailed and reliable cleaning required, that leaves my clients with a genuine sense of being cared for. Whether it is a deep clean before an event, gathering, meeting, and any other hosted events, regular upkeep for an Airbnb, or a simple touch-up, I am here to aid you! I passionately use safe and effective cleaning products in order to sustain my care for your property. Along with this, my clients can expect and depend on me to show up on time, and leave their space sparkling! Clean Living with Shannon is not a large company with a team backing it; it's a small local business that is built upon relationships, reputation, and results. When you invite me in, you're not just consulting a cleaner, you are hiring someone who genuinely cares and respects your space.</p>
-				<span>If you are in <strong>East Texas</strong> and looking for a cleaning service that leaves you proud, I'd love to present you with my Clean Living difference!</span>
+				<p>
+					Hi! I am Shannon, the beating heart behind Clean Living with Shannon.
+					I started this business with the goal of <strong
+						>promoting cleanliness</strong
+					> among fellow <strong>East Texans.</strong> I want to help make people
+					feel more comfortable in their personal spaces. With plenty of hands-on
+					experience, I strongly believe that cleaning is more than just sweeping
+					and dusting. It's about creating a less stress inducing, refreshing environment.
+					I take pride in delivering the detailed and reliable cleaning required,
+					that leaves my clients with a genuine sense of being cared for. Whether
+					it is a deep clean before an event, gathering, meeting, and any other hosted
+					events, regular upkeep for an Airbnb, or a simple touch-up, I am here to
+					aid you! I passionately use safe and effective cleaning products in order
+					to sustain my care for your property. Along with this, my clients can expect
+					and depend on me to show up on time, and leave their space sparkling! Clean
+					Living with Shannon is not a large company with a team backing it; it's
+					a small local business that is built upon relationships, reputation, and
+					results. When you invite me in, you're not just consulting a cleaner, you
+					are hiring someone who genuinely cares and respects your space.
+				</p>
+				<span
+					>If you are in <strong>East Texas</strong> and looking for a cleaning service
+					that leaves you proud, I'd love to present you with my Clean Living difference!</span
+				>
 			</div>
 		</Card>
 	</BodySection>
@@ -64,26 +101,26 @@ const rootPath = import.meta.env.BASE_URL;
 		font-weight: bold;
 	}
 
-	@media (max-width: 1600px){
-		.profile-pic{
+	@media (max-width: 1600px) {
+		.profile-pic {
 			max-width: 25rem;
 			max-height: 25rem;
 		}
 
-		P, span{
+		P,
+		span {
 			font-size: var(--fnt-sz-28);
 			line-height: 2.625rem;
 		}
 	}
 
-	@media (max-width: 850px)
-	{
-		.about-container{
+	@media (max-width: 850px) {
+		.about-container {
 			display: flex;
 			flex-direction: column;
 		}
 
-		.square-image{
+		.square-image {
 			float: none;
 			max-width: 12.5rem;
 			max-height: 12.5rem;
@@ -92,10 +129,10 @@ const rootPath = import.meta.env.BASE_URL;
 			margin-bottom: 3rem;
 		}
 
-		P, span{
+		P,
+		span {
 			font-size: var(--fnt-sz-16);
 			line-height: 1.5rem;
 		}
 	}
-
 </style>

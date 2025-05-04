@@ -1,180 +1,212 @@
 ---
-import { Image } from 'astro:assets';
-import '../../CSS/Background.css';
-import '../../CSS/Section.css';
-import '../../CSS/Global.css';
+import { Image } from "astro:assets";
+import "../../CSS/Background.css";
+import "../../CSS/Section.css";
+import "../../CSS/Global.css";
 
-import PageLogo from '../../photos/DesktopLogoS1.png';
+import PageLogo from "../../photos/DesktopLogoS1.png";
 
 const currentYear = new Date().getFullYear();
 const rootPath = import.meta.env.BASE_URL;
 ---
 
 <div class="footer-border top-design-border background-primary">
-    <div class="container">
-        <div class="footer-content">
-            <div class="brand-content">
-                <Image class="logo-image" src={PageLogo} alt="page logo" width="250" height="100" quality={"mid"} sizes="(max-width: 800px) 100vw, 250px"/>
-                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr" target="_blank" rel="noopener noreferrer">
-                    <Image class="facebook-logo" src={`/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"/>
-                </a>
-            </div>
-            <div class="contact-info">
-                <div class="contact-row">
-                    <img src={`${rootPath}/PhoneIcon.png`} width="30" height="30" alt="Phone icon"/>
-                    <span>(903)-952-8625</span>
-                </div>
-                <div class="contact-row">
-                    <img src={`${rootPath}/MailIcon.png`} width="30" height="30" alt="Main icon"/>
-                    <span>shannonandroger@yahoo.com</span>
-                </div>
-            </div>
-            <div class="footer-info">
-                        <small>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</small>
-                <a class="attrib-link" href={`${rootPath}/Attrib`}>Attributions</a>
-                <div class="page-links">
-                    <a href={`${rootPath}/`}>Home</a>
-                    <a href={`${rootPath}/About`}>About</a>
-                    <a href={`${rootPath}/Services`}>Services</a>
-                    <a href={`${rootPath}/Contact`}>Contact</a>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="footer-content">
+			<div class="brand-content">
+				<Image
+					class="logo-image"
+					src={PageLogo}
+					alt="page logo"
+					width="250"
+					height="100"
+					quality={"mid"}
+					sizes="(max-width: 800px) 100vw, 250px"
+				/>
+				<a
+					href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<Image
+						class="facebook-logo"
+						src={`/Facebook_Logo_Secondary.png`}
+						alt="Facebook logo"
+						width="40"
+						height="40"
+					/>
+				</a>
+			</div>
+			<div class="contact-info">
+				<div class="contact-row">
+					<img
+						src={`${rootPath}PhoneIcon.png`}
+						width="30"
+						height="30"
+						alt="Phone icon"
+					/>
+					<span>(903)-952-8625</span>
+				</div>
+				<div class="contact-row">
+					<img
+						src={`${rootPath}MailIcon.png`}
+						width="30"
+						height="30"
+						alt="Main icon"
+					/>
+					<span>shannonandroger@yahoo.com</span>
+				</div>
+			</div>
+			<div class="footer-info">
+				<small
+					>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to
+					Clean Living with Shannon for unlimited use, modification, and<br
+						class="lap-br"
+					/> distribution. See Attributions page for more details.</small
+				>
+				<a class="attrib-link" href={`${rootPath}Attrib`}>Attributions</a>
+				<div class="page-links">
+					<a href={`${rootPath}`}>Home</a>
+					<a href={`${rootPath}About`}>About</a>
+					<a href={`${rootPath}Services`}>Services</a>
+					<a href={`${rootPath}Contact`}>Contact</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
-    .footer-border{
-        height: fit-content;
-        max-width: 100%;
-        min-width: 100%;
-        position: relative;
-        overflow: hidden;
-    }
+	.footer-border {
+		height: fit-content;
+		max-width: 100%;
+		min-width: 100%;
+		position: relative;
+		overflow: hidden;
+	}
 
-    .footer-content{
-        height: fit-content;
-        width: 100%;
-        display: flex;
-        gap: calc(15vw - 10rem);
-        flex-shrink: 3;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-    }
+	.footer-content {
+		height: fit-content;
+		width: 100%;
+		display: flex;
+		gap: calc(15vw - 10rem);
+		flex-shrink: 3;
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
 
-    .brand-content{
-        display: flex;
-        flex-direction: column;
-        row-gap: 2rem;
-        margin-right: auto;
-    }
+	.brand-content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+		margin-right: auto;
+	}
 
-    .footer-info{
-        display: flex;
-        flex-direction: column;
-        margin-top: .8rem;
-    }
+	.footer-info {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0.8rem;
+	}
 
-    .attrib-link{
-        margin-top: 2.14rem;
-    }
+	.attrib-link {
+		margin-top: 2.14rem;
+	}
 
-    .page-links{
-        display: flex;
-        margin-top: 2.14rem;
-        gap: 2.8rem;
-        align-items: center;
-    }
+	.page-links {
+		display: flex;
+		margin-top: 2.14rem;
+		gap: 2.8rem;
+		align-items: center;
+	}
 
-    .contact-info{
-        display: flex;
-        flex-direction: column;
-        user-select: none;
-        gap: 1rem;
-        margin-top: .8rem;
-    }
+	.contact-info {
+		display: flex;
+		flex-direction: column;
+		user-select: none;
+		gap: 1rem;
+		margin-top: 0.8rem;
+	}
 
-    .contact-row{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
+	.contact-row {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
 
-    a{
-        color: var(--highlight-secondary);
-        font-family: var(--font-secondary);
-    }
+	a {
+		color: var(--highlight-secondary);
+		font-family: var(--font-secondary);
+	}
 
-    a:hover{
-        text-decoration: underline;
-    }
+	a:hover {
+		text-decoration: underline;
+	}
 
-    small, span{
-        color: var(--highlight-secondary);
-        font-family: var(--font-secondary);
-        font-size: var(--fnt-sz-16);
-    }
+	small,
+	span {
+		color: var(--highlight-secondary);
+		font-family: var(--font-secondary);
+		font-size: var(--fnt-sz-16);
+	}
 
-    .facebook-logo{
-        margin-left: 1rem;
-    }
+	.facebook-logo {
+		margin-left: 1rem;
+	}
 
-    @media(max-width: 1600px){
-        .lap-br{
-            display: none;
-        }
-    }
+	@media (max-width: 1600px) {
+		.lap-br {
+			display: none;
+		}
+	}
 
-    @media(max-width: 850px){
+	@media (max-width: 850px) {
+		.brand-content {
+			margin: 0;
+			align-items: center;
+		}
 
-        .brand-content{
-            margin: 0;
-            align-items: center;
-        }
+		.footer-content {
+			flex-direction: column;
+			gap: 2vh;
+			align-items: center;
+		}
 
-        .footer-content{
-            flex-direction: column;
-            gap: 2vh;
-            align-items: center;
-        }
+		.footer-info {
+			translate: none;
+			flex-direction: column-reverse;
+		}
 
-        .footer-info{
-            translate: none;
-            flex-direction: column-reverse;
-        }
+		.attrib-link {
+			margin-top: 1.5rem;
+			margin-bottom: 1.5rem;
+			align-self: center;
+		}
 
-        .attrib-link{
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            align-self: center;
-        }
-        
-        .facebook-logo{
-            margin-left: 0rem;
-        }
+		.facebook-logo {
+			margin-left: 0rem;
+		}
 
-        .page-links{
-            flex-direction: row;
-            gap: 1.25rem;
-            margin: 0;
-            justify-content: center;
-        }
+		.page-links {
+			flex-direction: row;
+			gap: 1.25rem;
+			margin: 0;
+			justify-content: center;
+		}
 
-        small{
-            text-align: center;
-            font-size: .75rem;
-        }
-    }
+		small {
+			text-align: center;
+			font-size: 0.75rem;
+		}
+	}
 
-    @media (max-width: 350px){
-        .page-links{
-            flex-direction: column;
-            text-align: center;
-        }
+	@media (max-width: 350px) {
+		.page-links {
+			flex-direction: column;
+			text-align: center;
+		}
 
-        small{
-            font-size: .5rem;
-        }
-    }
- 
+		small {
+			font-size: 0.5rem;
+		}
+	}
 </style>

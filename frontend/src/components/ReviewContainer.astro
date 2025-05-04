@@ -21,33 +21,16 @@ const rootPath = import.meta.env.BASE_URL;
 	>
 	<div class="testimonial-section">
 		<button id="left-navigation">
-			<img
-				class="nav-image"
-				src=`${rootPath}/NavIcon.png`
-				alt="Left nav arrow"
-			/>
+			<img class="nav-image" src=`${rootPath}NavIcon.png` alt="Left nav arrow"/>
 		</button>
 		<div class="testimonial-box">
 			<span id="testimonial-source"></span>
-			<blockquote
-				id="testimonial-comment"
-				cite="https://www.facebook.com/profile.php?id=61562022045028"
-			>
+			<blockquote id="testimonial-comment" cite="https://www.facebook.com/profile.php?id=61562022045028">
 			</blockquote>
-			<cite id="testimonial-author"
-				><a
-					id="author-tag"
-					class="author-text"
-					href="https://www.facebook.com/profile.php?id=61562022045028&sk=reviews"
-					target="_blank"></a></cite
-			>
+			<cite id="testimonial-author"><a id="author-tag" class="author-text" href="https://www.facebook.com/profile.php?id=61562022045028&sk=reviews" target="_blank" rel="noopener noreferrer"></a></cite>
 		</div>
 		<button id="right-navigation">
-			<img
-				class="nav-image"
-				src=`${rootPath}/NavIcon.png`
-				alt="Right nav arrow"
-			/>
+			<img class="nav-image" src=`${rootPath}NavIcon.png` alt="Right nav arrow"/>
 		</button>
 		<div id="elipse-container">
 			{reviews.map((_, index) => <div id={`elipse-${index}`} class="elipse" />)}
