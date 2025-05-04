@@ -6,7 +6,7 @@ import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://vincentpiercedev.github.io/CleanLivingWithShannon',
-  base: '/',
+  base: '',
   output: 'static',
   compressHTML: true,
   integrations: [react()],
