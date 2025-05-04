@@ -1,55 +1,69 @@
 ---
-import enviroment from "../data/Enviroment.json";
-import '../CSS/Global.css';
+import "../CSS/Global.css";
 
-import * as GWC from '../data/MarkDown/TestimonialsAndReviews/GlenWhitworthCom.md';
-import * as DBR from '../data/MarkDown/TestimonialsAndReviews/DebraBaxterRev.md';
-import * as RSLR from '../data/MarkDown/TestimonialsAndReviews/RaneStricklandLaRoeRev.md';
-import * as KWMC from '../data/MarkDown/TestimonialsAndReviews/KaronWeberMartinCom.md';
-import * as DPR from '../data/MarkDown/TestimonialsAndReviews/DeborahPatrickRev.md';
-import * as WSR from '../data/MarkDown/TestimonialsAndReviews/WhitneyScogginsRev.md';
-import * as DHP from '../data/MarkDown/TestimonialsAndReviews/DianeHindsPost.md';
+import * as GWC from "../data/MarkDown/TestimonialsAndReviews/GlenWhitworthCom.md";
+import * as DBR from "../data/MarkDown/TestimonialsAndReviews/DebraBaxterRev.md";
+import * as RSLR from "../data/MarkDown/TestimonialsAndReviews/RaneStricklandLaRoeRev.md";
+import * as KWMC from "../data/MarkDown/TestimonialsAndReviews/KaronWeberMartinCom.md";
+import * as DPR from "../data/MarkDown/TestimonialsAndReviews/DeborahPatrickRev.md";
+import * as WSR from "../data/MarkDown/TestimonialsAndReviews/WhitneyScogginsRev.md";
+import * as DHP from "../data/MarkDown/TestimonialsAndReviews/DianeHindsPost.md";
 
 const reviews = [GWC, DBR, RSLR, KWMC, DPR, WSR, DHP];
 
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
-
 
 <div class="review-container">
 	<span class="review-intro">Don't just take our word for it.</span>
-	<span class="review-description">Here is what other East Texans are saying about Clean Living with Shannon</span>
-    <div class="testimonial-section">
-        <button id="left-navigation">
-            <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Left nav arrow"/>
-        </button>
-        <div class="testimonial-box">
-            <span id="testimonial-source"></span>
-            <blockquote id="testimonial-comment" cite="https://www.facebook.com/profile.php?id=61562022045028">
-            </blockquote>
-            <cite id="testimonial-author"><a id="author-tag"class="author-text" href="https://www.facebook.com/profile.php?id=61562022045028&sk=reviews" target="_blank"></a></cite>
-        </div>
-        <button id="right-navigation">
-            <img class="nav-image" src=`${rootPath}/NavIcon.png` alt="Right nav arrow"/>
-        </button>
-        <div id="elipse-container">
-            {reviews.map((_, index) => (
-                <div id={`elipse-${index}`} class="elipse"/>
-            ))}
-        </div>
-    </div>
+	<span class="review-description"
+		>Here is what other East Texans are saying about Clean Living with Shannon</span
+	>
+	<div class="testimonial-section">
+		<button id="left-navigation">
+			<img
+				class="nav-image"
+				src=`${rootPath}/NavIcon.png`
+				alt="Left nav arrow"
+			/>
+		</button>
+		<div class="testimonial-box">
+			<span id="testimonial-source"></span>
+			<blockquote
+				id="testimonial-comment"
+				cite="https://www.facebook.com/profile.php?id=61562022045028"
+			>
+			</blockquote>
+			<cite id="testimonial-author"
+				><a
+					id="author-tag"
+					class="author-text"
+					href="https://www.facebook.com/profile.php?id=61562022045028&sk=reviews"
+					target="_blank"></a></cite
+			>
+		</div>
+		<button id="right-navigation">
+			<img
+				class="nav-image"
+				src=`${rootPath}/NavIcon.png`
+				alt="Right nav arrow"
+			/>
+		</button>
+		<div id="elipse-container">
+			{reviews.map((_, index) => <div id={`elipse-${index}`} class="elipse" />)}
+		</div>
+	</div>
 </div>
 
-
 <style>
-    .review-container{
+	.review-container {
 		display: flex;
 		flex-direction: column;
 		text-align: center;
 		margin-top: 4.5rem;
 	}
 
-	.review-intro{
+	.review-intro {
 		color: var(--highlight-primary);
 		letter-spacing: var(--lt-spc-3);
 		font-size: var(--fnt-sz-64);
@@ -58,7 +72,7 @@ const rootPath = enviroment.PublicRoot;
 		font-family: var(--font-primary);
 	}
 
-	.review-description{
+	.review-description {
 		color: var(--highlight-secondary);
 		text-align: center;
 		font-family: var(--font-primary);
@@ -66,413 +80,397 @@ const rootPath = enviroment.PublicRoot;
 		margin-top: 1rem;
 	}
 
-    .testimonial-section{
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto;
-        column-gap: 1rem;
-        row-gap: 2rem;
-        justify-items: center;
-        margin-top: 4.375rem;
-    }
+	.testimonial-section {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: auto auto;
+		column-gap: 1rem;
+		row-gap: 2rem;
+		justify-items: center;
+		margin-top: 4.375rem;
+	}
 
-    .testimonial-box{
-        display: flex;
-        flex-direction: column;
-        height: 25rem;
-        width: 100%;
-        grid-column: 2;
-        grid-row: 1;
-        border: 2px solid var(--highlight-secondary);
-        border-radius: 1rem;
-        padding: 1rem;
-        position: relative;
-    }
+	.testimonial-box {
+		display: flex;
+		flex-direction: column;
+		height: 25rem;
+		width: 100%;
+		grid-column: 2;
+		grid-row: 1;
+		border: 2px solid var(--highlight-secondary);
+		border-radius: 1rem;
+		padding: 1rem;
+		position: relative;
+	}
 
-    .author-text{
-        color: var(--highlight-secondary);
-        font-size: var(--fnt-sz-24);
-        font-family: var(--font-primary);
-        font-weight: light;
-        text-decoration: underline;
-        text-decoration-color: var(--color-primary);
-        transition: text-decoration-color .2s ease-in-out;
-    }
+	.author-text {
+		color: var(--highlight-secondary);
+		font-size: var(--fnt-sz-24);
+		font-family: var(--font-primary);
+		font-weight: light;
+		text-decoration: underline;
+		text-decoration-color: var(--color-primary);
+		transition: text-decoration-color 0.2s ease-in-out;
+	}
 
-    .author-text:hover{
-        text-decoration-color: var(--highlight-secondary);
-        transition: text-decoration .5s ease;
-    }
- 
-    .elipse{
-        width: 2rem;
-        height: 2rem;
-        border: 5px solid var(--highlight-secondary);
-        border-radius: 50%;
-        transition: background .3s ease-in-out;
-    }
+	.author-text:hover {
+		text-decoration-color: var(--highlight-secondary);
+		transition: text-decoration 0.5s ease;
+	}
 
-    .filled{
-        background: var(--highlight-secondary);
-        transition: background .3s ease-in-out;
-    }
+	.elipse {
+		width: 2rem;
+		height: 2rem;
+		border: 5px solid var(--highlight-secondary);
+		border-radius: 50%;
+		transition: background 0.3s ease-in-out;
+	}
 
-    .fade-in{
-        opacity: 1;
-        transition: opacity .3s ease;
-    }
+	.filled {
+		background: var(--highlight-secondary);
+		transition: background 0.3s ease-in-out;
+	}
 
-    .fade-out{
-        opacity: 0;
-        transition: opacity .3s ease;
-    }
+	.fade-in {
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
 
-    #testimonial-source{
-        font-size: var(--fnt-sz-32);
-        font-family: var(--font-primary);
-        font-weight: bold;
-        text-transform: capitalize;
-        color: var(--highlight-secondary);
-        text-align: left;
-    }
+	.fade-out {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
 
-    #left-navigation,
-    #right-navigation{
-        width: fit-content;
-        height: fit-content;
-        align-self: center;
-    }
+	#testimonial-source {
+		font-size: var(--fnt-sz-32);
+		font-family: var(--font-primary);
+		font-weight: bold;
+		text-transform: capitalize;
+		color: var(--highlight-secondary);
+		text-align: left;
+	}
 
-    #left-navigation{
-        grid-column: 1;
-        grid-row: 1;
-        scale: -1 1;
-    }
+	#left-navigation,
+	#right-navigation {
+		width: fit-content;
+		height: fit-content;
+		align-self: center;
+	}
 
-    #right-navigation{
-        grid-column: 3;
-        grid-row: 1;
-    }
+	#left-navigation {
+		grid-column: 1;
+		grid-row: 1;
+		scale: -1 1;
+	}
 
-    #elipse-container{
-        grid-column: 2;
-        grid-row: 2;
-        display: flex;
-        gap: 1rem;
-    }
+	#right-navigation {
+		grid-column: 3;
+		grid-row: 1;
+	}
 
-    #testimonial-comment{
-        color: var(--highlight-secondary);
-        font-size: var(--fnt-sz-32);
-        font-family: var(--font-primary);
-        font-weight: 200;
-        line-height: 3rem;
-        margin: 3rem;
-    }
+	#elipse-container {
+		grid-column: 2;
+		grid-row: 2;
+		display: flex;
+		gap: 1rem;
+	}
 
-    #testimonial-comment::before{
-        content: open-quote;
-        left: auto;
-        top: auto;
-        margin-top: 1rem;
-        margin-left: -4rem; /*alinging left, so can't use margin right*/
-    }
+	#testimonial-comment {
+		color: var(--highlight-secondary);
+		font-size: var(--fnt-sz-32);
+		font-family: var(--font-primary);
+		font-weight: 200;
+		line-height: 3rem;
+		margin: 3rem;
+	}
 
-    #testimonial-comment::after{
-        content: close-quote;
-        right: auto;
-        top: auto;
-        margin-top: 5rem;
-        margin-left: .5rem;
-    }
+	#testimonial-comment::before {
+		content: open-quote;
+		left: auto;
+		top: auto;
+		margin-top: 1rem;
+		margin-left: -4rem; /*alinging left, so can't use margin right*/
+	}
 
-    #testimonial-comment::after,
-    #testimonial-comment::before
-    {
-        font-family: var(--font-primary);
-        font-size: var(--fnt-sz-200);
-        font-weight: bolder;
-        position: absolute;
-        display: inline-block;
-    }
+	#testimonial-comment::after {
+		content: close-quote;
+		right: auto;
+		top: auto;
+		margin-top: 5rem;
+		margin-left: 0.5rem;
+	}
 
-    #testimonial-author{
-        position: absolute;
-        bottom: 0;
-        margin-bottom: 1.5rem;
-        margin-left: 1rem;
-    }
+	#testimonial-comment::after,
+	#testimonial-comment::before {
+		font-family: var(--font-primary);
+		font-size: var(--fnt-sz-200);
+		font-weight: bolder;
+		position: absolute;
+		display: inline-block;
+	}
 
-    button{
-        background: none;
-        border: none;
-        user-select: none;
-    }
+	#testimonial-author {
+		position: absolute;
+		bottom: 0;
+		margin-bottom: 1.5rem;
+		margin-left: 1rem;
+	}
 
-    button:hover{
-        outline: 3px solid var(--dark-accent);
-        cursor: pointer;
-    }
+	button {
+		background: none;
+		border: none;
+		user-select: none;
+	}
 
-    button:active{
-        box-shadow: inset 0px 0px 10px black;
-    }
+	button:hover {
+		outline: 3px solid var(--dark-accent);
+		cursor: pointer;
+	}
 
-    @media(max-width: 1600px)
-    {
-        .testimonial-box{
-            height: 30rem;
-        }
+	button:active {
+		box-shadow: inset 0px 0px 10px black;
+	}
 
-		.review-intro{
+	@media (max-width: 1600px) {
+		.testimonial-box {
+			height: 30rem;
+		}
+
+		.review-intro {
 			font-size: var(--fnt-sz-56);
 		}
 
-		.review-description{
+		.review-description {
 			font-size: var(--fnt-sz-28);
 		}
 
-        .nav-image{
-           scale: 60%;
-        }
-    }
+		.nav-image {
+			scale: 60%;
+		}
+	}
 
-    @media(max-width: 1400px)
-    {
+	@media (max-width: 1400px) {
+		.testimonial-box {
+			height: fit-content;
+		}
 
-        .testimonial-box{
-            height: fit-content;
-        }
+		.testimonial-section {
+			grid-template-columns: auto auto;
+			grid-template-rows: auto auto auto;
+		}
 
-        .testimonial-section{
-            grid-template-columns: auto auto;
-            grid-template-rows: auto auto auto;
-        }
+		.testimonial-box {
+			grid-column: 1 / span 2;
+			grid-row: 1;
+		}
 
-        .testimonial-box{
-            grid-column: 1 / span 2;
-            grid-row: 1;
-        }
+		#elipse-container {
+			grid-column: 1 / span 2;
+			grid-row: 2;
+		}
 
-        #elipse-container{
-            grid-column: 1 / span 2;
-            grid-row: 2;
-        }
+		#left-navigation {
+			grid-row: 3;
+			grid-column: 1;
+			align-self: auto;
+		}
 
-        #left-navigation{
-            grid-row: 3;
-            grid-column: 1;
-            align-self: auto;
-        }
+		#right-navigation {
+			grid-row: 3;
+			grid-column: 2;
+			align-self: auto;
+		}
+	}
 
-        #right-navigation{
-            grid-row: 3;
-            grid-column: 2;
-            align-self: auto;
-        }
-
-    }
-
-    @media(max-width: 850px)
-    {
-        .review-intro{
+	@media (max-width: 850px) {
+		.review-intro {
 			font-size: var(--fnt-sz-48);
 		}
 
-		.review-description{
+		.review-description {
 			font-size: var(--fnt-sz-20);
 		}
 
-        .nav-image{
-            max-width: 100%;
-            max-height: 100%;
-        }
+		.nav-image {
+			max-width: 100%;
+			max-height: 100%;
+		}
 
-        .testimonial-section{
-            margin-top: 1rem;
-        }
+		.testimonial-section {
+			margin-top: 1rem;
+		}
 
-        .testimonial-box{
-            height: fit-content;
-        }
+		.testimonial-box {
+			height: fit-content;
+		}
 
-        .elipse{
-            width: 1rem;
-            height: 1rem;
-            border: 1px solid var(--highlight-secondary);
-        }
+		.elipse {
+			width: 1rem;
+			height: 1rem;
+			border: 1px solid var(--highlight-secondary);
+		}
 
-        .author-text{
-            font-size: var(--fnt-sz-20);
-        }
+		.author-text {
+			font-size: var(--fnt-sz-20);
+		}
 
-        #testimonial-source{
-            font-size: var(--fnt-sz-24);
-            text-align: center;
-        }
+		#testimonial-source {
+			font-size: var(--fnt-sz-24);
+			text-align: center;
+		}
 
-        #testimonial-comment{
-            font-size: var(--fnt-sz-20);
-            line-height: 1.875rem;
-            margin: .5rem;
-        }
+		#testimonial-comment {
+			font-size: var(--fnt-sz-20);
+			line-height: 1.875rem;
+			margin: 0.5rem;
+		}
 
-        #left-navigation,
-        #right-navigation{
-            width: 5rem;
-            height: 5rem;
-            margin-top: -1rem;
-            padding: 0;
-        }
+		#left-navigation,
+		#right-navigation {
+			width: 5rem;
+			height: 5rem;
+			margin-top: -1rem;
+			padding: 0;
+		}
 
-        #testimonial-comment::after,
-        #testimonial-comment::before{
-            font-size: var(--fnt-sz-48);
-            margin: 0; /*reset the weird margins from above */
-        }
+		#testimonial-comment::after,
+		#testimonial-comment::before {
+			font-size: var(--fnt-sz-48);
+			margin: 0; /*reset the weird margins from above */
+		}
 
-        #testimonial-comment::before{
-            margin-left: -1rem;
-        }
+		#testimonial-comment::before {
+			margin-left: -1rem;
+		}
 
-        #testimonial-comment::after{
-            margin-left: .2rem;
-        }
+		#testimonial-comment::after {
+			margin-left: 0.2rem;
+		}
 
-        #testimonial-author{
-            margin: auto;
-        }
-    }
+		#testimonial-author {
+			margin: auto;
+		}
+	}
 
-    @media(max-width: 380px)
-    {
-        .review-intro{
+	@media (max-width: 380px) {
+		.review-intro {
 			font-size: var(--fnt-sz-32);
 		}
 
-		.review-description{
+		.review-description {
 			font-size: var(--fnt-sz-20);
 		}
 
-        .author-text{
-            font-size: var(--fnt-sz-16);
-        }
+		.author-text {
+			font-size: var(--fnt-sz-16);
+		}
 
-        .testimonial-box{
-            height: fit-content;
-        }
+		.testimonial-box {
+			height: fit-content;
+		}
 
-        #testimonial-source{
-            font-size: var(--fnt-sz-20);
-        }
+		#testimonial-source {
+			font-size: var(--fnt-sz-20);
+		}
 
-        #testimonial-comment{
-            font-size: var(--fnt-sz-16);
-            line-height: 1.5rem;
-            margin: .5rem;
-        }
+		#testimonial-comment {
+			font-size: var(--fnt-sz-16);
+			line-height: 1.5rem;
+			margin: 0.5rem;
+		}
 
-        #testimonial-author{
-            margin: 0;
-        }
-    }
-
+		#testimonial-author {
+			margin: 0;
+		}
+	}
 </style>
 
-<script define:vars={{reviews : reviews}}>
+<script define:vars={{ reviews: reviews }} type="">
+	let currentIndex = 0;
+	const fadeHalfTime = 300;
 
-    let currentIndex = 0;
-    const fadeHalfTime = 300;
+	const testimonySource = document.getElementById("testimonial-source");
+	const testimonyComment = document.getElementById("testimonial-comment");
+	const testimonyAuthor = document.getElementById("author-tag");
 
-    const testimonySource = document.getElementById("testimonial-source");
-    const testimonyComment = document.getElementById("testimonial-comment");
-    const testimonyAuthor = document.getElementById("author-tag");
+	//Fisher-Yates
+	function randomizeReviews(reviews) {
+		for (let i = reviews.length - 1; i >= 1; i--) {
+			const randomIndex = Math.floor(Math.random() * (i + 1));
+			const tempItem = reviews[i];
+			reviews[i] = reviews[randomIndex];
+			reviews[randomIndex] = tempItem;
+		}
+		return reviews;
+	}
 
+	const randReviews = randomizeReviews(reviews);
 
-    //Fisher-Yates
-    function randomizeReviews(reviews){
+	function FadeContent() {
+		testimonyAuthor.classList.remove("fade-in");
+		testimonyComment.classList.remove("fade-in");
+		testimonySource.classList.remove("fade-in");
 
-        for(let i = reviews.length - 1; i >= 1; i--)
-        {
-            const randomIndex = Math.floor((Math.random() * (i + 1)));
-            const tempItem = reviews[i];
-            reviews[i] = reviews[randomIndex];
-            reviews[randomIndex] = tempItem;
-        }
-        return reviews;
-    }
+		testimonySource.classList.add("fade-out");
+		testimonyAuthor.classList.add("fade-out");
+		testimonyComment.classList.add("fade-out");
 
-    const randReviews = randomizeReviews(reviews);
+		setTimeout(() => {
+			FadeIn();
+		}, fadeHalfTime);
+	}
 
-    function FadeContent(){
-        testimonyAuthor.classList.remove("fade-in");
-        testimonyComment.classList.remove("fade-in");
-        testimonySource.classList.remove("fade-in");
+	function FadeIn() {
+		testimonySource.classList.remove("fade-out");
+		testimonyAuthor.classList.remove("fade-out");
+		testimonyComment.classList.remove("fade-out");
 
-        testimonySource.classList.add("fade-out");
-        testimonyAuthor.classList.add("fade-out");
-        testimonyComment.classList.add("fade-out");
+		testimonySource.classList.add("fade-in");
+		testimonyAuthor.classList.add("fade-in");
+		testimonyComment.classList.add("fade-in");
+	}
 
-        setTimeout(() => {
-            FadeIn();
-        }, fadeHalfTime);
-    }
+	const updateReview = async () => {
+		const currentReview = await randReviews[currentIndex];
 
-    function FadeIn(){
-        testimonySource.classList.remove("fade-out");
-        testimonyAuthor.classList.remove("fade-out");
-        testimonyComment.classList.remove("fade-out");
+		//set the element display
+		testimonySource.textContent = currentReview.frontmatter.source + ":";
+		testimonyComment.textContent = currentReview.frontmatter.content;
+		testimonyAuthor.textContent = "- " + currentReview.frontmatter.author;
 
-        testimonySource.classList.add("fade-in");
-        testimonyAuthor.classList.add("fade-in");
-        testimonyComment.classList.add("fade-in");
-    }
+		//update the elipses
+		for (let i = 0; i < reviews.length; i++) {
+			const elipse = document.getElementById("elipse-" + i);
+			if (i === currentIndex) {
+				elipse.classList.add("filled");
+			} else {
+				elipse.classList.remove("filled");
+			}
+		}
+	};
 
-    const updateReview = async () => {
-        const currentReview = await randReviews[currentIndex];
-    
-        //set the element display
-        testimonySource.textContent = currentReview.frontmatter.source + ":";
-        testimonyComment.textContent = currentReview.frontmatter.content;
-        testimonyAuthor.textContent = "- " + currentReview.frontmatter.author;
+	const leftButton = document.getElementById("left-navigation");
+	const rightButton = document.getElementById("right-navigation");
 
-        //update the elipses
-        for (let i = 0; i < reviews.length; i++)
-        {
-            const elipse = document.getElementById("elipse-" + i);
-            if(i === currentIndex) {
-                elipse.classList.add("filled");
-            } else {
-                elipse.classList.remove("filled");
-            }
-        }
-    };
+	rightButton?.addEventListener("click", () => {
+		currentIndex = (currentIndex + 1) % reviews.length;
+		FadeContent();
 
-    
-        const leftButton = document.getElementById("left-navigation");
-        const rightButton = document.getElementById("right-navigation");
+		setTimeout(() => {
+			updateReview();
+		}, fadeHalfTime);
+	});
 
-        rightButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex + 1) % reviews.length;
-            FadeContent();
+	leftButton?.addEventListener("click", () => {
+		currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+		FadeContent();
 
-            setTimeout(() => {
-                updateReview();
-            }, fadeHalfTime);
-        });
+		setTimeout(() => {
+			updateReview();
+		}, fadeHalfTime);
+	});
 
-        leftButton?.addEventListener("click", () => {
-            currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
-            FadeContent();
+	//initialize the first render
 
-            setTimeout(() => {
-                updateReview();
-            }, fadeHalfTime);
-        });
-    
-
-     //initialize the first render
-
-    updateReview();
-
+	updateReview();
 </script>

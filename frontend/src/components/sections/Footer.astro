@@ -1,16 +1,13 @@
 ---
-import enviroment from '../../data/Enviroment.json';
 import { Image } from 'astro:assets';
 import '../../CSS/Background.css';
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
 
 import PageLogo from '../../photos/DesktopLogoS1.png';
-import PhoneIcon from '../../../public/PhoneIcon.png';
-import MainIcon from '../../../public/MailIcon.png';
 
 const currentYear = new Date().getFullYear();
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
 
 <div class="footer-border top-design-border background-primary">
@@ -18,22 +15,22 @@ const rootPath = enviroment.PublicRoot;
         <div class="footer-content">
             <div class="brand-content">
                 <Image class="logo-image" src={PageLogo} alt="page logo" width="250" height="100" quality={"mid"} sizes="(max-width: 800px) 100vw, 250px"/>
-                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr" target="_blank">
+                <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr" target="_blank" rel="noopener noreferrer">
                     <Image class="facebook-logo" src={`${rootPath}/Facebook_Logo_Secondary.png`} alt="Facebook logo" width="40" height="40"/>
                 </a>
             </div>
             <div class="contact-info">
                 <div class="contact-row">
-                    <img src={`${rootPath}/PhoneIcon.png`} width="30" height="30"/>
+                    <img src={`${rootPath}/PhoneIcon.png`} width="30" height="30" alt="Phone icon"/>
                     <span>(903)-952-8625</span>
                 </div>
                 <div class="contact-row">
-                    <img src={`${rootPath}/MailIcon.png`} width="30" height="30"/>
+                    <img src={`${rootPath}/MailIcon.png`} width="30" height="30" alt="Main icon"/>
                     <span>shannonandroger@yahoo.com</span>
                 </div>
             </div>
             <div class="footer-info">
-                        <p>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</p>
+                        <small>&copy; {currentYear} Vincent Pierce. All rights reserved. Licensed to Clean Living with Shannon for unlimited use, modification, and<br class="lap-br"> distribution. See Attributions page for more details.</small>
                 <a class="attrib-link" href={`${rootPath}/Attrib`}>Attributions</a>
                 <div class="page-links">
                     <a href={`${rootPath}/`}>Home</a>
@@ -59,7 +56,8 @@ const rootPath = enviroment.PublicRoot;
         height: fit-content;
         width: 100%;
         display: flex;
-        gap: 15vw;
+        gap: calc(15vw - 10rem);
+        flex-shrink: 3;
         margin-top: 3rem;
         margin-bottom: 3rem;
     }
@@ -111,7 +109,7 @@ const rootPath = enviroment.PublicRoot;
         text-decoration: underline;
     }
 
-    p, span{
+    small, span{
         color: var(--highlight-secondary);
         font-family: var(--font-secondary);
         font-size: var(--fnt-sz-16);
@@ -162,7 +160,7 @@ const rootPath = enviroment.PublicRoot;
             justify-content: center;
         }
 
-        p{
+        small{
             text-align: center;
             font-size: .75rem;
         }
@@ -174,7 +172,7 @@ const rootPath = enviroment.PublicRoot;
             text-align: center;
         }
 
-        p{
+        small{
             font-size: .5rem;
         }
     }

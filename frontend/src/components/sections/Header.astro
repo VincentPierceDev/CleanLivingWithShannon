@@ -1,6 +1,5 @@
 ---
 import LinkButton from "../LinkButton.astro";
-import enviroment from "../../data/Enviroment.json";
 import { Image } from "astro:assets";
 import "../../CSS/Background.css";
 import "../../CSS/Section.css";
@@ -10,7 +9,7 @@ import DesktopLogo from "../../photos/DesktopLogoS1.png";
 import MobileLogo from "../../photos/MobileLogoS1.png";
 
 const { linkMask = [] } = Astro.props;
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
 
 <header class="section">

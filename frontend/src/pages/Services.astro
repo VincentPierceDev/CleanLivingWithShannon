@@ -5,7 +5,6 @@ import BodySection from "../components/sections/BodySection.astro";
 import * as ServicesMeta from '../data/MarkDown/Services.md';
 import SelectCard from "../components/SelectCard.jsx";
 import type { MarkdownInstance } from "astro";
-import enviroment from "../data/Enviroment.json";
 
 interface Frontmatter {
 	title: string;
@@ -22,7 +21,7 @@ const cardDetails = await Promise.all(
 	})
 );
 
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
 
 <PageLayout title={ServicesMeta.frontmatter.title} description={ServicesMeta.frontmatter.description} linkMask={[false, false, true, false]}>
@@ -135,7 +134,6 @@ const rootPath = enviroment.PublicRoot;
 		}
 
 		.schedule-container{
-			flex-direction: column;
 			gap: .1rem;
 		}
 
@@ -154,6 +152,13 @@ const rootPath = enviroment.PublicRoot;
 
 		.notice-text{
 			font-size: var(--fnt-sz-20);
+		}
+	}
+
+	@media (max-width: 500px)
+	{
+		.schedule-container{
+			flex-direction: column;
 		}
 	}
 

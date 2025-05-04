@@ -5,13 +5,12 @@ import BodySection from "../components/sections/BodySection.astro";
 import * as AboutMeta from "../data/MarkDown/About.md";
 import Card from "../components/Card.astro";
 import { Image } from "astro:assets";
-import enviroment from '../data/Enviroment.json';
 
 import "../CSS/Global.css";
 
 import ProfilePicture from "../photos/ShannonPhoto.jpg";
 
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
 
 <script type="module" src={`${rootPath}/Scripts/Global.js`}></script>

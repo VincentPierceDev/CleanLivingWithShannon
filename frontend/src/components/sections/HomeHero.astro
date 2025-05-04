@@ -1,6 +1,5 @@
 ---
 import Button from "../LinkButton.astro";
-import enviroment from '../../data/Enviroment.json';
 import { Image } from "astro:assets";
 import '../../CSS/Section.css';
 import '../../CSS/Global.css';
@@ -16,7 +15,7 @@ import AfterStove from "../../photos/HomeDisplay/StoveAfter.jpg";
 
 const images = [BeforeOven, AfterOven, BeforeKitchen, AfterKitchen, BeforeStove, AfterStove];
 
-const rootPath = enviroment.PublicRoot;
+const rootPath = import.meta.env.BASE_URL;
 ---
 
 <section class="section">
@@ -521,10 +520,9 @@ const rootPath = enviroment.PublicRoot;
             RotateImages(currentCardIndex, currentImageIndex);
 
             beforeAfterText.classList.add('type-text-fade-effect');
-            beforeAfterText.innerHTML = (currentImageIndex == 0) ? "Before:" : "After:";
+            beforeAfterText.textContent = (currentImageIndex == 0) ? "Before:" : "After:";
 
         }, 5000);
-
     });
 
 </script>
