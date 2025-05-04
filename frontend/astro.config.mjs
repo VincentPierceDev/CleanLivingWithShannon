@@ -6,7 +6,7 @@ import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://snazzy-sunshine-ba5faf.netlify.app',
-  base: '/snazzy-sunshine-ba5faf',
+  base: '/',
   output: 'static',
   compressHTML: true,
   integrations: [react()],
