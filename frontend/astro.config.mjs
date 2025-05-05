@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 import netlify from '@astrojs/netlify';
@@ -9,6 +10,6 @@ export default defineConfig({
   base: '/',
   output: 'static',
   compressHTML: true,
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   adapter: netlify(),
 });
