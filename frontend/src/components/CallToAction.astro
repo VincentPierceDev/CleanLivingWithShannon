@@ -2,12 +2,18 @@
 import Button from "./LinkButton.astro";
 import "../CSS/Global.css";
 
-const {title = "", buttonType = true, buttonText="Button Text", link="/", animates=true} = Astro.props as {
-    title: string;
-    buttonType: boolean;
-    buttonText: string;
-    link: string;
-    animates: boolean;
+const {
+	title = "",
+	buttonType = true,
+	buttonText = "Button Text",
+	link = "/",
+	animates = true,
+} = Astro.props as {
+	title: string;
+	buttonType: boolean;
+	buttonText: string;
+	link: string;
+	animates: boolean;
 };
 
 const rootPath = import.meta.env.BASE_URL;
@@ -16,52 +22,75 @@ const rootPath = import.meta.env.BASE_URL;
 <script type="module" src={`${rootPath}Scripts/Global.js`}></script>
 
 <div class={`cta-container ${animates && `slide-up-page-effect`}`}>
-    <h3>{title}</h3>
-    {buttonType === true ? <Button href={`${link}`} text={buttonText} textSize="var(--fnt-sz-48)" paddingT="1.75rem" paddingB="1.75rem" paddingL="10rem" paddingR="10rem" br="1rem"/> : <a href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr" target="_blank" rel="noopener noreferrer"><img class="facebook-logo logo-gap" src={`${rootPath}Facebook_Logo_Primary.png`}  alt="Facebook logo" width="150" height="150"/></a>
-    }
+	<h3>{title}</h3>
+	{
+		buttonType === true ? (
+			<Button
+				href={`${link}`}
+				text={buttonText}
+				textSize="var(--fnt-sz-48)"
+				paddingT="1.75rem"
+				paddingB="1.75rem"
+				paddingL="10rem"
+				paddingR="10rem"
+				br="1rem"
+			/>
+		) : (
+			<a
+				href="https://www.facebook.com/people/Clean-Living-With-Shannon/61562022045028/?_rdr"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<img
+					class="facebook-logo logo-gap"
+					src={`${rootPath}Facebook_Logo_Primary.png`}
+					alt="Facebook logo"
+					width="150"
+					height="150"
+				/>
+			</a>
+		)
+	}
 </div>
 
 <style>
-    .cta-container{
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        width: 100%;
-        height: fit-content;
-        align-items: center;
-        color: var(--dark-accent);
-        padding-bottom: 9rem;
-    }
+	.cta-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		height: fit-content;
+		align-items: center;
+		color: var(--dark-accent);
+		padding-bottom: 9rem;
+	}
 
-    .logo-gap{
-        margin-top: 5rem;
-    }
+	.logo-gap {
+		margin-top: 5rem;
+	}
 
-    h3{
-        font-family: var(--font-primary);
-        text-transform: capitalize;
-        font-size: var(--fnt-sz-76);
-        letter-spacing: var( --lt-spc-3);
-        text-align: center;
-        font-weight: 800;
-    }
+	h3 {
+		font-family: var(--font-primary);
+		text-transform: capitalize;
+		font-size: var(--fnt-sz-76);
+		letter-spacing: var(--lt-spc-3);
+		text-align: center;
+		font-weight: 800;
+	}
 
-    @media (max-width: 1600px)
-    {
-        h3{
-            font-size: var(--fnt-sz-56);
-        }
-    }
+	@media (max-width: 1600px) {
+		h3 {
+			font-size: var(--fnt-sz-56);
+		}
+	}
 
-    @media (max-width: 850px)
-    {
-        h3{
-            font-size: var(--fnt-sz-32);
-        }
-    }
-
+	@media (max-width: 850px) {
+		h3 {
+			font-size: var(--fnt-sz-32);
+		}
+	}
 </style>
 
-<script define:vars={{base : rootPath}}>
-    console.log(base);
+<script define:vars={{ base: rootPath }}>
+	console.log(base);
 </script>
