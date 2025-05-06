@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  site: 'https://cleanlivingwithshannon.com',
+  site: 'http://cleanlivingwithshannon.com',
   base: '/',
   output: 'static',
   compressHTML: true,
