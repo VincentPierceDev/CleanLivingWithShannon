@@ -1,5 +1,6 @@
 
 function recaptchaSuccess(token) {
+    //grab netlify hosted function
     fetch('/.netlify/functions/', {
         method: 'POST',
         headers: {
