@@ -5,11 +5,14 @@ import BodySection from "../components/sections/BodySection.astro";
 import * as ContactMeta from "../data/MarkDown/Contact.md";
 import Card from "../components/Card.astro";
 import "../CSS/Global.css";
+import ContactInfo from "../components/ContactInfo.jsx";
 
 const rootPath = import.meta.env.BASE_URL;
 ---
 
 <script type="module" src={`${rootPath}Scripts/Global.js`}></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src={`${rootPath}Scripts/ContactSection.js`} async defer></script>
 
 <PageLayout
 	title={ContactMeta.frontmatter.title}
@@ -19,21 +22,21 @@ const rootPath = import.meta.env.BASE_URL;
 	<Hero heading="Contact Me" description="get in touch for cleaning service" />
 	<BodySection class="body-section" CallToAction={false}>
 		<Card title="My contact info">
+			<div class="captcha-container">
+				<div class="g-recaptcha captcha" data-sitekey="6LeFKjQrAAAAAA6DUMuU4I9amAxJFUluGA19Ig_N" data-callback="recaptchaSuccess"></div>
+			</div>
 			<div class="info-wrapper fade-in-page-effect">
 				<div class="info-line">
 					<span>Email:</span>
-					<span class="details">shannonandroger<br class="lb" />@yahoo.com</span
-					>
+					<ContactInfo beforeInfo="shannonandroger" afterInfo="@yahoo.com" shouldbreak={true}/>
 				</div>
 				<div class="info-line">
 					<span>Phone:</span>
-					<span class="details">(903) 952-8625</span>
+					<ContactInfo beforeInfo="(903) 952-8625" shouldbreak={false}/>
 				</div>
 				<div class="info-line">
 					<span>Facebook:</span>
-					<span class="details"
-						><strong>Clean Living with<br class="lb" /> Shannon</strong></span
-					>
+					<ContactInfo beforeInfo="Clean Living with" afterInfo=" Shannon" shouldbreak={true}/>
 				</div>
 			</div>
 			<div class="inquiry-container">
@@ -85,8 +88,13 @@ const rootPath = import.meta.env.BASE_URL;
 		text-decoration: underline;
 	}
 
-	.lb {
-		display: none;
+	.captcha-container{
+		display: flex;
+		left: 0;
+		width: 100%;
+		height: 5rem;
+		justify-content: center;
+		margin-top: 3rem;
 	}
 
 	span {
@@ -98,11 +106,7 @@ const rootPath = import.meta.env.BASE_URL;
 		margin-right: 5rem;
 	}
 
-	.details {
-		font-family: var(--font-secondary);
-		line-break: anywhere;
-		font-weight: 400;
-	}
+	
 
 	@media (max-width: 1600px) {
 		span {
@@ -121,16 +125,8 @@ const rootPath = import.meta.env.BASE_URL;
 			text-align: center;
 		}
 
-		.lb {
-			display: block;
-		}
-
 		.inquiry-note {
 			font-size: var(--fnt-sz-24);
-		}
-
-		.details {
-			line-break: normal;
 		}
 
 		span {

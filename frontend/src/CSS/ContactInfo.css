@@ -1,0 +1,39 @@
+@import url('../CSS/Global.css');
+
+.sensitive-details {
+	font-family: var(--font-secondary);
+	line-break: anywhere;
+	font-weight: 400;
+    font-size: var(--fnt-sz-64);
+    letter-spacing: var(--lt-spc-3);
+    color: var(--highlight-secondary);
+    margin-right: 5rem;
+}
+
+.lb{
+    display: none;
+}
+
+@media (max-width: 1600px) {
+	.sensitive-details {
+		font-size: var(--fnt-sz-32);
+	}
+}
+
+@media (max-width: 850px){
+    .sensitive-details {
+		line-break: normal;
+        font-size: var(--fnt-sz-28);
+		margin-right: 0;
+	}
+
+    .lb {
+		display: block;
+	}
+}
+
+@media (max-width: 380px) {
+	.sensitive-details {
+		font-size: var(--fnt-sz-20);
+	}
+}
