@@ -1,6 +1,6 @@
 [build]
   command = "astro build"
-  publish = "frontend/dist"
+  publish = "dist"
 
 [[headers]]
   for = "/*"
