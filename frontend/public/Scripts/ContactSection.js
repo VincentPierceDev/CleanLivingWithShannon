@@ -1,7 +1,7 @@
 
 function recaptchaSuccess(token) {
     //grab netlify hosted function
-    fetch('/.netlify/functions/', {
+    fetch('/.netlify/functions/Recaptcha', {
         method: 'POST',
         headers: {
             'Content-type' : 'application/x-www-form-urlencoded',
