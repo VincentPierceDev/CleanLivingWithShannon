@@ -1,6 +1,7 @@
 [build]
   command = "astro build"
   publish = "dist"
+  functions = "backend"
 
 [[headers]]
   for = "/*"
@@ -10,6 +11,3 @@
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Embedder-Policy = "require-corp"
     Cross-Origin-Resource-Policy = "same-origin"
-
-[functions]
-  directory = "backend"
