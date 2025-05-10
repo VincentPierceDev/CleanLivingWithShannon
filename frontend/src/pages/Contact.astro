@@ -28,15 +28,15 @@ const rootPath = import.meta.env.BASE_URL;
 			<div class="info-wrapper fade-in-page-effect">
 				<div class="info-line">
 					<span>Email:</span>
-					<ContactInfo beforeInfo="cleanlivingwithshannon" afterInfo="@gmail.com" shouldbreak={true}/>
+					<ContactInfo beforeInfo="cleanlivingwithshannon" afterInfo="@gmail.com" shouldbreak={true} client:load/>
 				</div>
 				<div class="info-line">
 					<span>Phone:</span>
-					<ContactInfo beforeInfo="(903) 952-8625" shouldbreak={false}/>
+					<ContactInfo beforeInfo="(903) 952-8625" shouldbreak={false} client:load/>
 				</div>
 				<div class="info-line">
 					<span>Facebook:</span>
-					<ContactInfo beforeInfo="Clean Living with" afterInfo=" Shannon" shouldbreak={true}/>
+					<ContactInfo beforeInfo="Clean Living with" afterInfo=" Shannon" shouldbreak={true} client:load/>
 				</div>
 			</div>
 			<div class="inquiry-container">
