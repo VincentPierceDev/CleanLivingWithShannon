@@ -11,7 +11,12 @@ const ContactInfo = (props) => {
     useEffect(() => {
         const updateState = () => setVerified(true);
         window.addEventListener("recaptcha-verified-success", updateState);
-        return window.removeEventListener("recaptcha-verified-success", updateState);
+        console.log("recaptcha bind");
+
+        return () => {
+            console.log("recaptcha unbound");
+            return window.removeEventListener("recaptcha-verified-success", updateState);
+        }
     }, [])
 
     if(shouldBreak){
