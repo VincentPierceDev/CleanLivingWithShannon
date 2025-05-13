@@ -44,7 +44,10 @@ const rootPath = import.meta.env.BASE_URL;
 						class="lap-br"
 					/> distribution. See Attributions page for more details.</small
 				>
-				<a class="attrib-link" href={`${rootPath}Attrib`}>Attributions</a>
+				<div class="legal-links">
+					<a class="attrib-link" href={`${rootPath}Attrib`}>Attributions</a>
+					<a class="attrib-link" href={`${rootPath}PrivacyPolicy`}>Privacy Policy</a>
+				</div>
 				<div class="page-links">
 					<a href={`${rootPath}`}>Home</a>
 					<a href={`${rootPath}About`}>About</a>
@@ -88,8 +91,10 @@ const rootPath = import.meta.env.BASE_URL;
 		margin-top: 0.8rem;
 	}
 
-	.attrib-link {
+	.legal-links {
+		display: flex;
 		margin-top: 2.14rem;
+		gap: .5rem;
 	}
 
 	.page-links {
